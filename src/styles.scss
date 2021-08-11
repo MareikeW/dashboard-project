@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 .dashboard-container {
     background-color: lightblue;
     width: 80vw;
@@ -23,7 +31,6 @@
 
     a {
         padding: 1em;
-        text-decoration: none;
         color: black;
         text-transform: uppercase;
         font-weight: bold;
