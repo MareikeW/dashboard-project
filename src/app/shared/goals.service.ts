@@ -5,10 +5,7 @@ import { Goal } from "../shared/goal.model";
   providedIn: 'root'
 })
 export class GoalsService {
-  goals: Goal[] = [
-    new Goal("This is a test", "My Why", "Finish Project"),
-    new Goal("This is a test", "My Why", "Finish Project")
-  ];
+  goals: Goal[] = [];
 
   constructor() { }
 

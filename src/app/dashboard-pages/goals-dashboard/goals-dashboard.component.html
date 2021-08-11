@@ -8,22 +8,22 @@
 
     <section class="goals-dashboard">
         <div class="add-goals-container">
-            <form>
+            <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
                 <h2>Neues Ziel</h2>
 
                 <div>
                     <div>
-                        <input type="text" placeholder="Mein Ziel..." />
+                        <input ngModel name="name" type="text" placeholder="Mein Ziel..." />
                     </div>
                     <div>
-                        <textarea type="text" placeholder="Warum möchte ich dieses Ziel erreichen?" ></textarea>
+                        <textarea ngModel name="reason" type="text" placeholder="Warum möchte ich dieses Ziel erreichen?" ></textarea>
                     </div>
                     <div>
                         <input type="date" />
-                        <input type="text" placeholder="Miniziel" />
+                        <input ngModel name="deadlineDescription" type="text" placeholder="Miniziel" />
                     </div>
                     <div>
-                        <button>Neues Ziel anlegen</button>
+                        <button type="submit">Neues Ziel anlegen</button>
                     </div>
                 </div>
             </form>
