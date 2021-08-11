@@ -3,6 +3,7 @@ export class Goal {
         // properties on the class
         public name: string,
         public reason: string,
+        public deadline: string,
         public deadlineDescription: string
     ) {} 
 }

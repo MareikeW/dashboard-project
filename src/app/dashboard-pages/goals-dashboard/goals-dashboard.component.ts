@@ -16,10 +16,9 @@ export class GoalsDashboardComponent {
     this.goals = this.goalsService.getAllGoals();
   }
 
+  // neuer Array mit den Werten aus den Formularfeldern wird angelegt und das Formular zurückgesetzt.
   onFormSubmit(form: NgForm) {
-    console.log("FORM Submitted");
-    console.log(form)
-
-    this.goalsService.addGoal(new Goal(form.value.name, form.value.reason, form.value.deadlineDescription))
+    this.goalsService.addGoal(new Goal(form.value.name, form.value.reason, form.value.deadline, form.value.deadlineDescription))
+    form.reset();
   }
 }

@@ -19,7 +19,7 @@
                         <textarea ngModel name="reason" type="text" placeholder="Warum möchte ich dieses Ziel erreichen?" ></textarea>
                     </div>
                     <div>
-                        <input type="date" />
+                        <input ngModel name="deadline" type="date" />
                         <input ngModel name="deadlineDescription" type="text" placeholder="Miniziel" />
                     </div>
                     <div>
@@ -35,6 +35,7 @@
             <div class="goal" *ngFor="let goal of goals">
                 <div>{{ goal.name }}</div>
                 <div>{{ goal.reason }}</div>
+                <div>{{ goal.deadline }}</div>
                 <div>{{ goal.deadlineDescription }}</div>
             </div>
         </div>
