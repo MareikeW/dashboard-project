@@ -1,0 +1,25 @@
+.dashboard-container {
+    background-color: lightblue;
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto;
+    position: relative;
+
+    .dashboard-navigation {
+        position: absolute;
+        right: -60px;
+        top: 23vh;
+        display: flex;
+        flex-direction: column;
+        background-color: red;
+        width:fit-content;
+
+        a {
+            padding: 1em;
+            text-decoration: none;
+            color: black;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+}
