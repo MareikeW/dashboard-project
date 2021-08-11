@@ -5,4 +5,39 @@
         <a routerLink="/dashboard/goals-dashboard">Ziele</a>
         <a routerLink="/dashboard/settings">Einstellungen</a>
     </nav>
+
+    <section class="goals-dashboard">
+        <div class="add-goals-container">
+            <form>
+                <h2>Neues Ziel</h2>
+
+                <div>
+                    <div>
+                        <input type="text" placeholder="Mein Ziel..." />
+                    </div>
+                    <div>
+                        <textarea type="text" placeholder="Warum möchte ich dieses Ziel erreichen?" ></textarea>
+                    </div>
+                    <div>
+                        <input type="date" />
+                        <input type="text" placeholder="Miniziel" />
+                    </div>
+                    <div>
+                        <button>Neues Ziel anlegen</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <br />
+
+        <div class="goals-list">
+            <div class="goal" *ngFor="let goal of goals">
+                <div>{{ goal.name }}</div>
+                <div>{{ goal.reason }}</div>
+                <div>{{ goal.deadlineDescription }}</div>
+            </div>
+        </div>
+        
+    </section>
 </div>
