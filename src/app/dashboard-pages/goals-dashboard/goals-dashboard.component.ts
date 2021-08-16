@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GoalsService } from 'src/app/shared/goals.service';
-import { Goal } from "../../shared/goal.model";
 
 @Component({
   selector: 'app-goals-dashboard',
@@ -8,11 +6,9 @@ import { Goal } from "../../shared/goal.model";
   styleUrls: ['./goals-dashboard.component.scss']
 })
 export class GoalsDashboardComponent {
-  goals!: Goal[];
 
-  constructor(private goalsService: GoalsService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.goals = this.goalsService.getAllGoals();
   }
 }

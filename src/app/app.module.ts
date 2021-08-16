@@ -11,6 +11,7 @@ import { GoalsDashboardComponent } from './dashboard-pages/goals-dashboard/goals
 import { SettingsComponent } from './dashboard-pages/settings/settings.component';
 import { MainDashboardComponent } from './dashboard-pages/main-dashboard/main-dashboard.component';
 import { GoalFormComponent } from './dashboard-pages/goals-dashboard/goal-form/goal-form.component';
+import { GoalsDisplayComponent } from './dashboard-pages/goals-dashboard/goals-display/goals-display.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GoalFormComponent } from './dashboard-pages/goals-dashboard/goal-form/g
     GoalsDashboardComponent,
     SettingsComponent,
     MainDashboardComponent,
-    GoalFormComponent
+    GoalFormComponent,
+    GoalsDisplayComponent
   ],
   imports: [
     BrowserModule,

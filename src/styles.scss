@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
 li {
@@ -12,11 +13,16 @@ a {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+}
+
 .dashboard-container {
-    background-color: lightblue;
+    background-color: rgb(177, 173, 230);
     width: 80vw;
-    height: 80vh;
+    min-height: 80vh;
     margin: 0 auto;
+    margin-bottom: 2rem;
     position: relative;
 
     .dashboard-navigation {
