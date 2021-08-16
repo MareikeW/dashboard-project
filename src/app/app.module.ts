@@ -10,6 +10,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { GoalsDashboardComponent } from './dashboard-pages/goals-dashboard/goals-dashboard.component';
 import { SettingsComponent } from './dashboard-pages/settings/settings.component';
 import { MainDashboardComponent } from './dashboard-pages/main-dashboard/main-dashboard.component';
+import { GoalFormComponent } from './dashboard-pages/goals-dashboard/goal-form/goal-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MainDashboardComponent } from './dashboard-pages/main-dashboard/main-da
     SigninComponent,
     GoalsDashboardComponent,
     SettingsComponent,
-    MainDashboardComponent
+    MainDashboardComponent,
+    GoalFormComponent
   ],
   imports: [
     BrowserModule,
