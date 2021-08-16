@@ -9,7 +9,8 @@ import { Goal } from "../../../shared/goal.model";
 })
 export class GoalsDisplayComponent implements OnInit {
 
-  goals!: Goal[];
+  goals: Goal[] = [];
+  accomplishedGoals: any[] = [];
   
   constructor(private goalsService: GoalsService) {}
 
@@ -24,5 +25,9 @@ export class GoalsDisplayComponent implements OnInit {
       return `${day}.${month}.${year}`
     }
     return 
+  }
+
+  consoleIndex(index: number) {
+    return this.accomplishedGoals.push(index);
   }
 }

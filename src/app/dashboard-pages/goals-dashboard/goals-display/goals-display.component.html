@@ -1,7 +1,18 @@
 <div class="goals-list">
-    <div class="goal" *ngFor="let goal of goals; let indexOfElement = index;">
-        <h4>{{ indexOfElement + 1 }}. Ziel: <strong>{{ goal.name }}</strong></h4>
+    <div class="goal" *ngFor="let goal of goals; let indexOfElement = index;" [ngClass]="accomplishedGoals.includes(indexOfElement) ? 'greenBorder' : ''">
+        <div class="zielanzeige--top">
+            <h4>{{ indexOfElement + 1 }}. Ziel: <strong>{{ goal.name }}</strong></h4>
+        
+            <div>
+                <button (click)="consoleIndex(indexOfElement)" [ngClass]="accomplishedGoals.includes(indexOfElement) ? 'removeButton' : ''">
+                    O
+                </button>
 
+                <button>
+                    X
+                </button>
+            </div>
+        </div>
         <ul>
             <li *ngIf="goal.reason" class="margin--bottom"><b>Warum?</b> <br /> {{ goal.reason }}</li>
     
