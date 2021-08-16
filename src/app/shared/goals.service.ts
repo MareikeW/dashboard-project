@@ -17,6 +17,10 @@ export class GoalsService {
     this.goals.push(goal);
   }
 
+  markAsAccomplished(index: number) {
+    this.goals[index].accomplished = !this.goals[index].accomplished;
+  }
+
   updateGoal(index: number, updatedGoal: Goal) {
     this.goals[index] = updatedGoal;
   }

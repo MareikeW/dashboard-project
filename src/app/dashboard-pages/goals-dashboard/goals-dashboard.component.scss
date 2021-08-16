@@ -1,6 +1,14 @@
+.dashboard-container {
+    h2 {
+        text-align: center;
+        padding: 2em;
+        font-size: 2rem;
+        background-color: rgb(239, 222, 245);
+    }
+}
+
 .goals-dashboard {
-    margin-left: 2em;
-    width: 60vw;
-    height: auto;
-    margin-bottom: 2em;
+    margin-left: 4em;
+    margin-right: 4em;
+    min-height: 75vh;
 }

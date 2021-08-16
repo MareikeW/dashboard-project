@@ -1,0 +1,72 @@
+button {
+    background-color: unset;
+    border-radius: 8px;
+    border: 2px solid rgb(239, 222, 245);
+    color: rgb(239, 222, 245);
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: rgb(239, 222, 245);
+        color: black;
+    }
+}
+
+.form-head {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em auto;
+
+    .minButton {
+        padding: 0.5em 1em;
+    }
+
+    .newButton {
+        padding: 1em;
+    }
+}
+
+.form-body {
+    width: 50%;
+    margin: 0 auto;
+
+    input,
+    textarea,
+    button {
+        width: 100%;
+        border-radius: 8px;
+        border: 2px solid rgb(239, 222, 245);
+        padding: 1em;
+        margin-top: 10px;
+    }
+
+    p {
+        margin-top: 10px;
+    }
+
+    .miniziel-container {
+        display: flex;
+
+        input {
+            padding: 0.5em;
+        }
+
+        input[type="date"] {
+            margin-right: 10px;
+            width: 200px;
+        }
+    }
+
+    .add-goal-button-container {
+        width: 35%;
+        margin: 15px auto;
+
+        .enableButton {
+            visibility: block;
+        }
+    
+        .disableButton {
+            visibility: hidden;
+        }
+    }
+}
