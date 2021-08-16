@@ -10,6 +10,7 @@ export class Goal {
         public deadlineThree: string,
         public deadlineDescriptionThree: string,
         public deadlineFour: string,
-        public deadlineDescriptionFour: string
+        public deadlineDescriptionFour: string,
+        public accomplished: boolean = false
     ) {} 
 }

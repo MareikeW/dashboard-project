@@ -10,8 +10,7 @@ import { Goal } from "../../../shared/goal.model";
 export class GoalsDisplayComponent implements OnInit {
 
   goals: Goal[] = [];
-  accomplishedGoals: any[] = [];
-  
+
   constructor(private goalsService: GoalsService) {}
 
   ngOnInit(): void {
@@ -27,7 +26,12 @@ export class GoalsDisplayComponent implements OnInit {
     return 
   }
 
-  consoleIndex(index: number) {
-    return this.accomplishedGoals.push(index);
+  markGoalAsFinished(index: number) {
+    this.goalsService.markAsAccomplished(index);
   }
+
+  removeGoal(index: number) {
+    this.goalsService.deleteGoal(index);
+  }
+
 }
