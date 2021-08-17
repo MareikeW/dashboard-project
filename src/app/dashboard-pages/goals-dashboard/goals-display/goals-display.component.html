@@ -3,13 +3,13 @@
         <div class="zielanzeige--top">
             <h4>{{ indexOfElement + 1 }}. Ziel: <strong>{{ goal.name }}</strong></h4>
         
-            <div>
-                <button (click)="markGoalAsFinished(indexOfElement)" >
-                    O
+            <div class="action-buttons-container">
+                <button class="action-button" (click)="markGoalAsFinished(indexOfElement)" >
+                    🏆
                 </button>
 
-                <button (click)="removeGoal(indexOfElement)">
-                    X
+                <button class="action-button" (click)="removeGoal(indexOfElement)">
+                    ❌
                 </button>
             </div>
         </div>
