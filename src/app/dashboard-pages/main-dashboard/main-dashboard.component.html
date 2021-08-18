@@ -17,9 +17,10 @@
                   <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isMondayDisplayed" />
                 </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <p class="weekday-todos" *ngIf="dailyTodoLists.isMondayDisplayed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
-                justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
-                </p>
+                <form class="weekday-todos" *ngIf="dailyTodoLists.isMondayDisplayed" (onSubmit)="addTodo('monday', )">
+                  <input ngModel name="mondayTodos" type="text" />
+                  <button type="submit">Todo anlegen</button>
+                </form>
             </div>
 
             <div class="weekday-planner">
@@ -43,8 +44,7 @@
                   <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isWednesdayDisplayed" />
                 </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <p class="weekday-todos" *ngIf="dailyTodoLists.isWednesdayDisplayed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
-                justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
+                <p class="weekday-todos" *ngIf="dailyTodoLists.isWednesdayDisplayed">
                 </p>
             </div>
 
@@ -69,9 +69,9 @@
                   <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isFridayDisplayed" />
                 </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <p class="weekday-todos" *ngIf="dailyTodoLists.isFridayDisplayed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
-                justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
-                </p>
+                <form class="weekday-todos" *ngIf="dailyTodoLists.isFridayDisplayed">
+                  
+                </form>
             </div>
 
             <div class="weekday-planner">
