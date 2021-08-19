@@ -7,12 +7,50 @@ import { Todo } from './todo.model';
 export class TodosService {
   todos: Todo[] = [];
 
+  mondayTodos: Todo[] = [];
+  tuesdayTodos: Todo[] = [];
+  
   constructor() { }
 
   
-  public getAllTodos() {
-    return this.todos;
+  getAllTodos() {
+    return this.mondayTodos;
   }
 
+  addTodo(todo: Todo, weekday: string) {
+    switch(weekday) {
+      case "monday": {
+        this.mondayTodos.push(todo);
+        break;
+      }   
+      case "tuesday": {
+        this.tuesdayTodos.push(todo);
+        break;
+      }
+      case "wednesday": {
+
+        break;
+      }   
+      case "thursday": {
+
+        break;
+      }
+      case "friday": {
+
+        break;
+      }   
+      case "saturday": {
+
+        break;
+      }
+      case "sunday": {
+ 
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
   
 }

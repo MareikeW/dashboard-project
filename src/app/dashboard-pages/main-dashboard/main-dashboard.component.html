@@ -13,14 +13,17 @@
                 <!-- Wochentaganzeige -->
                 <button class="weekday-heading" (click)="toggleTodoList('monday')">
                   <h3>Montag</h3>
-                  <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isMondayDisplayed" />
-                  <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isMondayDisplayed" />
+                  <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isMondayDisplayed"/>
+                  <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isMondayDisplayed"/>
                 </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <form class="weekday-todos" *ngIf="dailyTodoLists.isMondayDisplayed" (onSubmit)="addTodo('monday', )">
-                  <input ngModel name="mondayTodos" type="text" />
+                <form #form="ngForm" (ngSubmit)="onTodoSubmit(form)" class="weekday-todos" *ngIf="dailyTodoLists.isMondayDisplayed">
+                  <input ngModel name="monday" type="text" />
                   <button type="submit">Todo anlegen</button>
                 </form>
+                <div *ngFor="let todo of todos; index as indexOfElement;">
+                  <p>{{ todo.task }}</p>
+                </div>
             </div>
 
             <div class="weekday-planner">
@@ -28,74 +31,75 @@
                 <button class="weekday-heading" (click)="toggleTodoList('tuesday')">
                     <h3>Dienstag</h3>
                     <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isTuesdayDisplayed" />
-                    <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isTuesdayDisplayed" />
+                    <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isTuesdayDisplayed"/>
                   </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <p class="weekday-todos" *ngIf="dailyTodoLists.isTuesdayDisplayed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
-                justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
-                </p>
+                <form #form="ngForm" (ngSubmit)="onTodoSubmit(form)" class="weekday-todos" *ngIf="dailyTodoLists.isTuesdayDisplayed">
+                  <input ngModel name="tuesday" type="text" />
+                  <button type="submit">Todo anlegen</button>
+                </form>
             </div>
 
             <div class="weekday-planner">
                 <!-- Wochentaganzeige -->
-                <button class="weekday-heading" (click)="toggleTodoList('wednesday')">
+                <button class="weekday-heading">
                   <h3>Mittwoch</h3>
-                  <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isWednesdayDisplayed" />
-                  <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isWednesdayDisplayed" />
+                  <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" />
+                  <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" />
                 </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <p class="weekday-todos" *ngIf="dailyTodoLists.isWednesdayDisplayed">
+                <p class="weekday-todos">
                 </p>
             </div>
 
             <div class="weekday-planner">
                 <!-- Wochentaganzeige -->
-                <button class="weekday-heading" (click)="toggleTodoList('thursday')">
+                <button class="weekday-heading">
                     <h3>Donnerstag</h3>
-                    <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isThursdayDisplayed" />
-                    <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isThursdayDisplayed" />
+                    <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" />
+                    <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" />
                   </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <p class="weekday-todos" *ngIf="dailyTodoLists.isThursdayDisplayed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
+                <p class="weekday-todos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
                 justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
                 </p>
             </div>
 
             <div class="weekday-planner">
                 <!-- Wochentaganzeige -->
-                <button class="weekday-heading" (click)="toggleTodoList('friday')">
+                <button class="weekday-heading">
                   <h3>Freitag</h3>
-                  <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isFridayDisplayed" />
-                  <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isFridayDisplayed" />
+                  <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" />
+                  <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" />
                 </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <form class="weekday-todos" *ngIf="dailyTodoLists.isFridayDisplayed">
+                <form class="weekday-todos">
                   
                 </form>
             </div>
 
             <div class="weekday-planner">
                 <!-- Wochentaganzeige -->
-                <button class="weekday-heading" (click)="toggleTodoList('saturday')">
+                <button class="weekday-heading">
                     <h3>Samstag</h3>
-                    <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isSaturdayDisplayed" />
-                    <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isSaturdayDisplayed" />
+                    <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" />
+                    <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" />
                   </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <p class="weekday-todos" *ngIf="dailyTodoLists.isSaturdayDisplayed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
+                <p class="weekday-todos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
                 justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
                 </p>
             </div>
 
             <div class="weekday-planner">
                 <!-- Wochentaganzeige -->
-                <button class="weekday-heading" (click)="toggleTodoList('sunday')">
+                <button class="weekday-heading">
                     <h3>Sonntag</h3>
-                    <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isSundayDisplayed" />
-                    <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isSundayDisplayed" />
+                    <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" />
+                    <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" />
                   </button>
                 <!-- Alle Aufgaben an diesem Tag -->
-                <p class="weekday-todos" *ngIf="dailyTodoLists.isSundayDisplayed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
+                <p class="weekday-todos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
                 justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
                 </p>
             </div>

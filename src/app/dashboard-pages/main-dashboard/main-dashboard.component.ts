@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/shared/todo.model';
 import { TodosService } from 'src/app/shared/todos.service';
+import { NgForm } from '@angular/forms';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -8,6 +10,8 @@ import { TodosService } from 'src/app/shared/todos.service';
   styleUrls: ['./main-dashboard.component.scss']
 })
 export class MainDashboardComponent implements OnInit {
+
+  todos: Todo[] = [];
 
   dailyTodoLists = {
     isMondayDisplayed: false,
@@ -29,49 +33,24 @@ export class MainDashboardComponent implements OnInit {
     { weekday: "sunday", todos: [], todosPriorities: [] },
   ]
 
-  todos: Todo[] = [];
-
   constructor(private todosService: TodosService) { }
 
   ngOnInit(): void {
-    this.todosService.getAllTodos();
+    this.todos = this.todosService.getAllTodos();
   }
-
-  addTodo(weekday: string, todo: string) {
-    switch(weekday) {
-      case "monday": {
-        
-        break;
-      }   
-      case "tuesday": {
-
-        break;
+  
+  onTodoSubmit(form: NgForm) {
+    //console.log(form.value.monday)
+    if (form.value.monday) {
+        console.log("Hello Monday")
+        this.todosService.addTodo(new Todo(form.value.monday), 'monday');
       }
-      case "wednesday": {
-
-        break;
-      }   
-      case "thursday": {
-
-        break;
-      }
-      case "friday": {
-
-        break;
-      }   
-      case "saturday": {
-
-        break;
-      }
-      case "sunday": {
- 
-        break;
-      }
-      default: {
-        break;
-      }
+    else if (form.value.tuesday) {
+      console.log("Hello Tuesday")
+        this.todosService.addTodo(new Todo(form.value.tuesday), 'tuesday');
     }
-    console.log(this.todos)
+    form.reset();
+
   }
 
   toggleTodoList(weekday: string) {
@@ -85,23 +64,23 @@ export class MainDashboardComponent implements OnInit {
         break;
       }
       case "wednesday": {
-        this.dailyTodoLists.isMondayDisplayed = !this.dailyTodoLists.isWednesdayDisplayed;
+        this.dailyTodoLists.isWednesdayDisplayed = !this.dailyTodoLists.isWednesdayDisplayed;
         break;
       }   
       case "thursday": {
-        this.dailyTodoLists.isTuesdayDisplayed = !this.dailyTodoLists.isThursdayDisplayed;
+        this.dailyTodoLists.isThursdayDisplayed = !this.dailyTodoLists.isThursdayDisplayed;
         break;
       }
       case "friday": {
-        this.dailyTodoLists.isMondayDisplayed = !this.dailyTodoLists.isFridayDisplayed;
+        this.dailyTodoLists.isFridayDisplayed = !this.dailyTodoLists.isFridayDisplayed;
         break;
       }   
       case "saturday": {
-        this.dailyTodoLists.isTuesdayDisplayed = !this.dailyTodoLists.isSaturdayDisplayed;
+        this.dailyTodoLists.isSaturdayDisplayed = !this.dailyTodoLists.isSaturdayDisplayed;
         break;
       }
       case "sunday": {
-        this.dailyTodoLists.isTuesdayDisplayed = !this.dailyTodoLists.isSundayDisplayed;
+        this.dailyTodoLists.isSundayDisplayed = !this.dailyTodoLists.isSundayDisplayed;
         break;
       }
       default: {
