@@ -25,13 +25,10 @@
                     <option value="C">C</option>
                     <option value="D">D</option>
                   </select>
-                  <input ngModel name="done" type="checkbox" />
                   <button type="submit">Todo anlegen</button>
                 </form>
-                <div *ngFor="let todo of allMondayTodos;">
-                  <p>{{ todo.task }}</p>
-                  <p>{{ todo.priority }}</p>
-                  <p>{{ todo.done }}</p>
+                <div *ngFor="let todo of allMondayTodos; index as indexOfTodo">
+                  <p>{{ todo.priority }} | {{ todo.task }} <input type="checkbox" name="done" [(ngModel)]="todo.done" (click)="updateTodoStatus(indexOfTodo, 'monday')" /></p>
                 </div>
             </div>
 
@@ -45,8 +42,17 @@
                 <!-- Alle Aufgaben an diesem Tag -->
                 <form #form="ngForm" (ngSubmit)="onTodoSubmit(form)" class="weekday-todos" *ngIf="dailyTodoLists.isTuesdayDisplayed">
                   <input ngModel name="tuesday" type="text" />
+                  <select ngModel name="priority">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                  </select>
                   <button type="submit">Todo anlegen</button>
                 </form>
+                <div *ngFor="let todo of allTuesdayTodos; index as indexOfTodo">
+                  <p>{{ todo.priority }} | {{ todo.task }} <input type="checkbox" name="done" [(ngModel)]="todo.done" (click)="updateTodoStatus(indexOfTodo, 'tuesday')" /></p>
+                </div>
             </div>
 
             <div class="weekday-planner">

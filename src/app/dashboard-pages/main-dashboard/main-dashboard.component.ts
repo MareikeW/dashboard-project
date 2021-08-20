@@ -12,7 +12,12 @@ export class MainDashboardComponent implements OnInit {
 
   todos: Todo[] = [];
   allMondayTodos: Todo[] = [];
-  
+  allTuesdayTodos: Todo[] = [];
+  allWednesdayTodos: Todo[] = [];
+  allThursdayTodos: Todo[] = [];
+  allFridayTodos: Todo[] = [];
+  allSaturdayTodos: Todo[] = [];
+  allSundayTodos: Todo[] = [];
 
   dailyTodoLists = {
     isMondayDisplayed: false,
@@ -29,6 +34,12 @@ export class MainDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.todos = this.todosService.getAllTodos();
     this.allMondayTodos = this.todosService.getAllMondayTodos();
+    this.allTuesdayTodos = this.todosService.getAllTuesdayTodos();
+    this.allWednesdayTodos = this.todosService.getAllWednesdayTodos();
+    this.allThursdayTodos = this.todosService.getAllThursdayTodos();
+    this.allFridayTodos = this.todosService.getAllFridayTodos();
+    this.allSaturdayTodos = this.todosService.getAllSaturdayTodos();
+    this.allSundayTodos = this.todosService.getAllSundayTodos();
   }
   
   onTodoSubmit(form: NgForm) {
@@ -36,10 +47,28 @@ export class MainDashboardComponent implements OnInit {
         this.todosService.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done), 'monday');
       }
     else if (form.value.tuesday) {
-        //this.todosService.addTodo(new Todo(form.value.tuesday, 'tuesday', form.value.priority), 'tuesday');
+      this.todosService.addTodo(new Todo(form.value.tuesday, 'tuesday', form.value.priority, form.value.done), 'tuesday');
+    }
+    else if (form.value.wednesday) {
+      this.todosService.addTodo(new Todo(form.value.wednesday, 'wednesday', form.value.priority, form.value.done), 'wednesday');
+    }
+    else if (form.value.thursday) {
+      this.todosService.addTodo(new Todo(form.value.thursday, 'thursday', form.value.priority, form.value.done), 'thursday');
+    }
+    else if (form.value.friday) {
+      this.todosService.addTodo(new Todo(form.value.friday, 'friday', form.value.priority, form.value.done), 'friday');
+    }
+    else if (form.value.saturday) {
+      this.todosService.addTodo(new Todo(form.value.saturday, 'saturday', form.value.priority, form.value.done), 'saturday');
+    }
+    else if (form.value.sunday) {
+      this.todosService.addTodo(new Todo(form.value.sunday, 'sunday', form.value.priority, form.value.done), 'sunday');
     }
     form.reset();
-    console.log(this.todosService.getAllTodos());
+  }
+
+  updateTodoStatus(indexOfTodo: number, weekday: string) {
+    this.todosService.updateTodo(indexOfTodo, weekday);
   }
 
   toggleTodoList(weekday: string) {
