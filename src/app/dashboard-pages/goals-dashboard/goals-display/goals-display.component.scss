@@ -16,10 +16,21 @@
     .zielanzeige--top {
         display: flex;
         justify-content: space-between;
-    }
 
-    h4 {
-        font-size: 1.5rem;
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        .action-buttons-container {
+            width: 50px;
+            display: flex;
+            justify-content: space-between;
+
+            .action-button {
+                background-color: unset;
+                border: solid 2px black;
+            }
+        }
     }
 
     .removeButton {
