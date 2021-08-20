@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/shared/todo.model';
 import { TodosService } from 'src/app/shared/todos.service';
 import { NgForm } from '@angular/forms';
-import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -12,6 +11,8 @@ import { fromEvent } from 'rxjs';
 export class MainDashboardComponent implements OnInit {
 
   todos: Todo[] = [];
+  allMondayTodos: Todo[] = [];
+  
 
   dailyTodoLists = {
     isMondayDisplayed: false,
@@ -23,34 +24,22 @@ export class MainDashboardComponent implements OnInit {
     isSundayDisplayed: false
   };
 
-  dailyTodos = [
-    { weekday: "monday", todos: [], todosPriorities: [] },
-    { weekday: "tuesday", todos: [], todosPriorities: [] },
-    { weekday: "wednesday", todos: [], todosPriorities: [] },
-    { weekday: "thursday", todos: [], todosPriorities: [] },
-    { weekday: "friday", todos: [], todosPriorities: [] },
-    { weekday: "saturday", todos: [], todosPriorities: [] },
-    { weekday: "sunday", todos: [], todosPriorities: [] },
-  ]
-
   constructor(private todosService: TodosService) { }
 
   ngOnInit(): void {
     this.todos = this.todosService.getAllTodos();
+    this.allMondayTodos = this.todosService.getAllMondayTodos();
   }
   
   onTodoSubmit(form: NgForm) {
-    //console.log(form.value.monday)
     if (form.value.monday) {
-        console.log("Hello Monday")
-        this.todosService.addTodo(new Todo(form.value.monday), 'monday');
+        this.todosService.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done), 'monday');
       }
     else if (form.value.tuesday) {
-      console.log("Hello Tuesday")
-        this.todosService.addTodo(new Todo(form.value.tuesday), 'tuesday');
+        //this.todosService.addTodo(new Todo(form.value.tuesday, 'tuesday', form.value.priority), 'tuesday');
     }
     form.reset();
-
+    console.log(this.todosService.getAllTodos());
   }
 
   toggleTodoList(weekday: string) {

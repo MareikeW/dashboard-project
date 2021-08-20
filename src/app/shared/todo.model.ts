@@ -3,7 +3,8 @@ export class Todo {
         // properties on the class
         //public id: number,
         public task: string,
-        //public priority: string,
-        //public done: boolean = false
+        public weekday: string,
+        public priority: string,
+        public done: boolean = false
     ) {} 
 }

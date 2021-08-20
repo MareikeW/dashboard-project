@@ -14,6 +14,11 @@ export class TodosService {
 
   
   getAllTodos() {
+    let allTodos = [...this.mondayTodos, ...this.tuesdayTodos]
+    return allTodos;
+  }
+
+  getAllMondayTodos() {
     return this.mondayTodos;
   }
 
