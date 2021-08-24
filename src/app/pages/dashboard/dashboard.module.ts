@@ -9,6 +9,7 @@ import { SettingsComponent } from '../../dashboard-pages/settings/settings.compo
 import { MainDashboardComponent } from '../../dashboard-pages/main-dashboard/main-dashboard.component';
 import { GoalFormComponent } from '../../dashboard-pages/goals-dashboard/goal-form/goal-form.component';
 import { GoalsDisplayComponent } from '../../dashboard-pages/goals-dashboard/goals-display/goals-display.component';
+import { UebersichtDiagrammComponent } from 'src/app/dashboard-pages/main-dashboard/uebersicht-diagramm/uebersicht-diagramm.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GoalsDisplayComponent } from '../../dashboard-pages/goals-dashboard/goa
     SettingsComponent,
     MainDashboardComponent,
     GoalFormComponent,
-    GoalsDisplayComponent
+    GoalsDisplayComponent,
+    UebersichtDiagrammComponent
   ],
   imports: [
     CommonModule,

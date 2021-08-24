@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { BarComponent } from './bar/bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    BarComponent
   ],
   imports: [
     BrowserModule,
