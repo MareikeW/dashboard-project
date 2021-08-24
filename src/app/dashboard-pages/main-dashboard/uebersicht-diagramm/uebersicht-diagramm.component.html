@@ -1,2 +1,14 @@
 <h2>Bar Chart</h2>
-<figure id="bar"></figure>
+<ngx-charts-bar-vertical 
+    [view]="[600,180]"
+    [results]="saleData"
+    [xAxisLabel]="'Wochentage'"
+    [legendTitle]="'Produktivität'"
+    [yAxisLabel]="'Erledigte Aufgaben'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="false">
+</ngx-charts-bar-vertical>
