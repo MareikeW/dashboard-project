@@ -1,14 +1,6 @@
 <h2>Bar Chart</h2>
-<ngx-charts-bar-vertical 
-    [view]="[600,180]"
-    [results]="saleData"
-    [xAxisLabel]="'Wochentage'"
-    [legendTitle]="'Produktivität'"
-    [yAxisLabel]="'Erledigte Aufgaben'"
-    [legend]="true"
-    [showXAxisLabel]="true"
-    [showYAxisLabel]="true"
-    [xAxis]="true"
-    [yAxis]="true"
-    [gradient]="false">
-</ngx-charts-bar-vertical>
+
+<div class="card">
+    <h5>Vertical</h5>
+    <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+</div>

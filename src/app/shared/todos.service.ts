@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo.model';
+import { DashboardModule } from '../pages/dashboard/dashboard.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodosService {
   todos: Todo[] = [];
-
+  mondayNumberOfTodos: number = 0;
   mondayTodos: Todo[] = [];
   tuesdayTodos: Todo[] = [];
   wednesdayTodos: Todo[] = [];
@@ -23,6 +24,10 @@ export class TodosService {
     return allTodos;
   }
 
+  getAllMondayNumberOfTodos() {
+    return this.mondayNumberOfTodos;
+  }
+  
   getAllMondayTodos() {
     return this.mondayTodos;
   }
@@ -51,10 +56,11 @@ export class TodosService {
     return this.sundayTodos;
   }
 
-  updateTodo(index: number, weekday: string) {
+  updateTodo(index: number, weekday: string) { 
     switch(weekday) {
       case "monday": {
         this.mondayTodos[index].done = !this.mondayTodos[index].done;
+        this.mondayNumberOfTodos += 1;
         break;
       }   
       case "tuesday": {
