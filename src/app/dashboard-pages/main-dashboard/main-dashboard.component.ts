@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class MainDashboardComponent implements OnInit {
 
   todos: Todo[] = [];
-  allMondayTodos$: Todo[] = [];
+  allMondayTodos: Todo[] = [];
   allTuesdayTodos: Todo[] = [];
   allWednesdayTodos: Todo[] = [];
   allThursdayTodos: Todo[] = [];
@@ -34,10 +34,7 @@ export class MainDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.todos = this.todosService.getAllTodos();
-    this.todosService.getAllMondayTodos().subscribe(res => {
-      this.allMondayTodos$ = res;
-    });
-    
+    this.allMondayTodos = this.todosService.getAllMondayTodos()  
     this.allTuesdayTodos = this.todosService.getAllTuesdayTodos();
     this.allWednesdayTodos = this.todosService.getAllWednesdayTodos();
     this.allThursdayTodos = this.todosService.getAllThursdayTodos();

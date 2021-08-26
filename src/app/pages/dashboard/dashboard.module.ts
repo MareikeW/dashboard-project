@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../../app-routing.module';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartModule } from 'primeng/chart';
+import { TodosService } from 'src/app/shared/todos.service';
 
 import { DashboardComponent } from './dashboard.component';
 import { GoalsDashboardComponent } from '../../dashboard-pages/goals-dashboard/goals-dashboard.component';
@@ -27,8 +28,9 @@ import { UebersichtDiagrammComponent } from 'src/app/dashboard-pages/main-dashbo
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    NgxChartsModule,
-    BrowserAnimationsModule
-  ]
+    BrowserAnimationsModule,
+    ChartModule
+  ],
+  providers: [TodosService]
 })
 export class DashboardModule { }
