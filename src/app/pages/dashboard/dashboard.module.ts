@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartModule } from 'primeng/chart';
-import { TodosService } from 'src/app/shared/todos.service';
 
 import { DashboardComponent } from './dashboard.component';
 import { GoalsDashboardComponent } from '../../dashboard-pages/goals-dashboard/goals-dashboard.component';
@@ -30,7 +29,6 @@ import { UebersichtDiagrammComponent } from 'src/app/dashboard-pages/main-dashbo
     AppRoutingModule,
     BrowserAnimationsModule,
     ChartModule
-  ],
-  providers: [TodosService]
+  ]
 })
 export class DashboardModule { }

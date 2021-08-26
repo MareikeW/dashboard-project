@@ -52,8 +52,8 @@ export class UebersichtDiagrammComponent {
       }
     }
 
-    this.count = this.todosService.getAllMondayNumberOfTodos()
-        //this.basicData.datasets[0].data = [...this.basicData.datasets[0].data];
+    this.count = this.todosService.getAllMondayNumberOfTodos();
+    //this.basicData.datasets[0].data = [...this.basicData.datasets[0].data];
       
     console.log(this.count);
     this.updateData(); 
@@ -62,9 +62,9 @@ export class UebersichtDiagrammComponent {
     }
 
     updateData() {
-      //this.basicData.datasets[0].data[0] = this.count;
-      this.basicData.datasets[0].data[0] = 10;
-    }
+        //return this.basicData.datasets[0].data[0] = this.count;
+        
+    }    
 }
 
 //this.allMondayTodos = this.todosService.getAllMondayTodos();

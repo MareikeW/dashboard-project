@@ -3,7 +3,7 @@ import { Todo } from './todo.model';
 import { DashboardModule } from '../pages/dashboard/dashboard.module';
 
 @Injectable({
-  providedIn: DashboardModule
+  providedIn: 'root'
 })
 export class TodosService {
   todos: Todo[] = [];
@@ -27,6 +27,7 @@ export class TodosService {
   getAllMondayNumberOfTodos() {
     return this.mondayNumberOfTodos;
   }
+  
   getAllMondayTodos() {
     return this.mondayTodos;
   }
@@ -59,6 +60,7 @@ export class TodosService {
     switch(weekday) {
       case "monday": {
         this.mondayTodos[index].done = !this.mondayTodos[index].done;
+        this.mondayNumberOfTodos += 1;
         break;
       }   
       case "tuesday": {
@@ -95,7 +97,6 @@ export class TodosService {
     switch(weekday) {
       case "monday": {
         this.mondayTodos.push(todo);
-        this.mondayNumberOfTodos++;
         break;
       }   
       case "tuesday": {
