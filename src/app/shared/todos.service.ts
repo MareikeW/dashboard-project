@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import { Todo } from './todo.model';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Todo } from './todo.model';
 })
 export class TodosService {
   todos: Todo[] = [];
-
+  
   mondayTodos: Todo[] = [];
   tuesdayTodos: Todo[] = [];
   wednesdayTodos: Todo[] = [];
@@ -24,7 +25,7 @@ export class TodosService {
   }
 
   getAllMondayTodos() {
-    return this.mondayTodos;
+    return of(this.mondayTodos);
   }
 
   getAllTuesdayTodos() {

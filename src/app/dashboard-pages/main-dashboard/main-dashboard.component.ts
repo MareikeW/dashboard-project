@@ -3,6 +3,7 @@ import { Todo } from 'src/app/shared/todo.model';
 import { TodosService } from 'src/app/shared/todos.service';
 import { NgForm } from '@angular/forms';
 
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-main-dashboard',
   templateUrl: './main-dashboard.component.html',
@@ -11,7 +12,7 @@ import { NgForm } from '@angular/forms';
 export class MainDashboardComponent implements OnInit {
 
   todos: Todo[] = [];
-  allMondayTodos: Todo[] = [];
+  allMondayTodos$: Todo[] = [];
   allTuesdayTodos: Todo[] = [];
   allWednesdayTodos: Todo[] = [];
   allThursdayTodos: Todo[] = [];
@@ -33,7 +34,10 @@ export class MainDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.todos = this.todosService.getAllTodos();
-    this.allMondayTodos = this.todosService.getAllMondayTodos();
+    this.todosService.getAllMondayTodos().subscribe(res => {
+      this.allMondayTodos$ = res;
+    });
+    
     this.allTuesdayTodos = this.todosService.getAllTuesdayTodos();
     this.allWednesdayTodos = this.todosService.getAllWednesdayTodos();
     this.allThursdayTodos = this.todosService.getAllThursdayTodos();

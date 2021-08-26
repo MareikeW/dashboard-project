@@ -28,7 +28,7 @@
                   </select>
                   <button type="submit">Todo anlegen</button>
                 </form>
-                <div *ngFor="let todo of allMondayTodos; index as indexOfTodo">
+                <div *ngFor="let todo of allMondayTodos$; index as indexOfTodo">
                   <p>{{ todo.priority }} | {{ todo.task }} <input type="checkbox" name="done" [(ngModel)]="todo.done" (click)="updateTodoStatus(indexOfTodo, 'monday')" /></p>
                 </div>
             </div>
