@@ -15,7 +15,6 @@ export class MainDashboardComponent implements OnInit {
   previousWeek!: string;
   mondayNumberOfDoneTodos: number = 0;
 
-  todos: Todo[] = [];
   allMondayTodos: Todo[] = [];
   allTuesdayTodos: Todo[] = [];
   allWednesdayTodos: Todo[] = [];
@@ -40,6 +39,13 @@ export class MainDashboardComponent implements OnInit {
     this.activatedRoute.data.subscribe(data => {
       this.week = data.id; 
     });
+
+    let savedMondayTodos = localStorage.getItem("allMondayTodos");
+    let doneMondayTodos = localStorage.getItem("mondayNumberOfDoneTodos");
+    if (savedMondayTodos && doneMondayTodos) {
+      this.allMondayTodos = JSON.parse(savedMondayTodos);
+      this.mondayNumberOfDoneTodos = JSON.parse(doneMondayTodos);
+    }
   }
 
   getNextWeek() {
@@ -80,6 +86,7 @@ export class MainDashboardComponent implements OnInit {
     switch(weekday) {
       case "monday": {
         this.allMondayTodos.push(todo);
+        localStorage.setItem('allMondayTodos', JSON.stringify(this.allMondayTodos));
         break;
       }   
       case "tuesday": {
@@ -124,7 +131,13 @@ updateTodoStatus(index: number, weekday: string) {
   switch(weekday) {
     case "monday": {
       this.allMondayTodos[index].done = !this.allMondayTodos[index].done;
-      this.mondayNumberOfDoneTodos += 1;
+      if (this.allMondayTodos[index].done === true) {
+        this.mondayNumberOfDoneTodos += 1;
+      } else {
+        this.mondayNumberOfDoneTodos -= 1;
+      }
+      localStorage.setItem("mondayNumberOfDoneTodos", JSON.stringify(this.mondayNumberOfDoneTodos));
+      localStorage.setItem('allMondayTodos', JSON.stringify(this.allMondayTodos));
       break;
     }   
     default: {
@@ -132,6 +145,13 @@ updateTodoStatus(index: number, weekday: string) {
     }
   }
 }
+
+  deleteTodos() {
+    this.allMondayTodos = [];
+    this.mondayNumberOfDoneTodos = 0;
+    localStorage.removeItem("mondayNumberOfDoneTodos");
+    localStorage.removeItem('allMondayTodos');
+  }
 
   toggleTodoList(weekday: string) {
     switch(weekday) {
