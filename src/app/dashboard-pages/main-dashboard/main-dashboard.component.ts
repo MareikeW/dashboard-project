@@ -14,6 +14,7 @@ export class MainDashboardComponent implements OnInit {
   nextWeek!: string;
   previousWeek!: string;
   mondayNumberOfDoneTodos: number = 0;
+  filteredAllMondayTodos!: [];
 
   allMondayTodos: Todo[] = [];
   allTuesdayTodos: Todo[] = [];
@@ -42,8 +43,8 @@ export class MainDashboardComponent implements OnInit {
 
     let savedMondayTodos = localStorage.getItem("allMondayTodos");
     let doneMondayTodos = localStorage.getItem("mondayNumberOfDoneTodos");
-    if (savedMondayTodos && doneMondayTodos) {
-      this.allMondayTodos = JSON.parse(savedMondayTodos);
+    if (savedMondayTodos && doneMondayTodos) { 
+      this.filteredAllMondayTodos = JSON.parse(savedMondayTodos).find((todo: { week: number; }) => todo.week === this.week);
       this.mondayNumberOfDoneTodos = JSON.parse(doneMondayTodos);
     }
   }
@@ -76,7 +77,7 @@ export class MainDashboardComponent implements OnInit {
 
   onTodoSubmit(form: NgForm) {
     if (form.value.monday) {
-      this.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done), 'monday');
+      this.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done, this.week), 'monday');
     }
     
     form.reset();

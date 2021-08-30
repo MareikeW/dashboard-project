@@ -4,6 +4,7 @@ export class Todo {
         public task: string,
         public weekday: string,
         public priority: string,
-        public done: boolean = false
+        public done: boolean = false,
+        public week: number
     ) {} 
 }

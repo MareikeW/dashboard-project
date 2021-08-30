@@ -43,15 +43,11 @@
                   <button type="submit">Todo anlegen</button>
                 </form>
                 <div *ngFor="let todo of allMondayTodos; index as indexOfTodo">
-                  <p>{{ todo.priority }} | {{ todo.task }} <input type="checkbox" name="done" [(ngModel)]="todo.done" (click)="updateTodoStatus(indexOfTodo, 'monday')" /></p>
+                  <p>{{ todo.priority }} | {{ todo.task }} | {{ todo.week }} <input type="checkbox" name="done" [(ngModel)]="todo.done" (click)="updateTodoStatus(indexOfTodo, 'monday')" /></p>
                 </div>
             </div>
 
             <!--
-              
-              
-              
-              
               <div class="weekday-planner">
                  Wochentaganzeige 
                 <button class="weekday-heading" (click)="toggleTodoList('tuesday')">
