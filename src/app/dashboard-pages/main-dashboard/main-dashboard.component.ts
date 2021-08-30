@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/shared/todo.model';
 import { TodosService } from 'src/app/shared/todos.service';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
-import { Observable } from 'rxjs';
 @Component({
   selector: 'app-main-dashboard',
   templateUrl: './main-dashboard.component.html',
   styleUrls: ['./main-dashboard.component.scss']
 })
 export class MainDashboardComponent implements OnInit {
+  week: number = 0;
+  nextWeek!: string;
+  previousWeek!: string;
 
   todos: Todo[] = [];
   allMondayTodos: Todo[] = [];
@@ -30,9 +33,13 @@ export class MainDashboardComponent implements OnInit {
     isSundayDisplayed: false
   };
 
-  constructor(private todosService: TodosService) { }
+  constructor(private todosService: TodosService, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe(data => {
+      this.week = data.id; 
+    });
+ 
     this.todos = this.todosService.getAllTodos();
     this.allMondayTodos = this.todosService.getAllMondayTodos()  
     this.allTuesdayTodos = this.todosService.getAllTuesdayTodos();
@@ -41,6 +48,32 @@ export class MainDashboardComponent implements OnInit {
     this.allFridayTodos = this.todosService.getAllFridayTodos();
     this.allSaturdayTodos = this.todosService.getAllSaturdayTodos();
     this.allSundayTodos = this.todosService.getAllSundayTodos();
+  }
+
+  getNextWeek() {
+    if (this.week <= 11) {
+      return this.nextWeek = `/dashboard/main-dashboard/${this.week + 1}`;
+    } else {
+      return;
+    }
+  }
+
+  getPreviousWeek() {
+    if (this.week >= 2) {
+      return this.nextWeek = `/dashboard/main-dashboard/${this.week - 1}`;
+    } else {
+      return;
+    }
+  }
+
+  hasNextWeek() {
+    if (this.week <= 11) return true 
+    else return false;
+  } 
+
+  hasPreviousWeek() {
+    if (this.week >= 2) return true 
+    else return false;
   }
   
   onTodoSubmit(form: NgForm) {
