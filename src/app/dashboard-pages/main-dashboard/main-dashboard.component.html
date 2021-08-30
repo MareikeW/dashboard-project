@@ -6,16 +6,17 @@
     </nav>
 
     <div class="maindashboard-container">
-      <div *ngIf="hasPreviousWeek()">
-        <a [routerLink]="getPreviousWeek()">letzte Woche</a>
-      </div>
+      <section class="wochenanzeige">
+        <div *ngIf="hasPreviousWeek()">
+          <a [routerLink]="getPreviousWeek()">letzte Woche</a>
+        </div>
 
-      <h2>Woche {{ week }}</h2>
-      
-      <div *ngIf="hasNextWeek()">
-        <a [routerLink]="getNextWeek()">nächste Woche</a>
-      </div>
+        <h2>Woche {{ week }}</h2>
 
+        <div *ngIf="hasNextWeek()">
+          <a [routerLink]="getNextWeek()">nächste Woche</a>
+        </div>
+      </section>
         <!--<app-uebersicht-diagramm></app-uebersicht-diagramm>
         <section class="weekly-planner-container">
             <div class="weekday-planner"> -->

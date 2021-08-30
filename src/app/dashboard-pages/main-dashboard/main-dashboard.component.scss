@@ -1,3 +1,17 @@
+.wochenanzeige {
+    display: flex;
+    margin: 10px auto;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+
+    a {
+        font-size: 0.6rem;
+        text-transform: capitalize;
+    }
+}
+
 .weekly-planner-container {
 
     .weekday-planner {
