@@ -17,16 +17,20 @@
           <a [routerLink]="getNextWeek()">nächste Woche</a>
         </div>
       </section>
-        <!--<app-uebersicht-diagramm></app-uebersicht-diagramm>
-        <section class="weekly-planner-container">
-            <div class="weekday-planner"> -->
-                <!-- Wochentaganzeige 
+
+      <section>
+        {{ mondayNumberOfDoneTodos }} erledigt
+      </section>
+
+      <section class="weekly-planner-container">
+            <div class="weekday-planner">
+                <!-- Wochentaganzeige -->
                 <button class="weekday-heading" (click)="toggleTodoList('monday')">
                   <h3>Montag</h3>
                   <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isMondayDisplayed"/>
                   <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isMondayDisplayed"/>
-                </button>-->
-                <!-- Alle Aufgaben an diesem Tag 
+                </button>
+                <!-- Alle Aufgaben an diesem Tag -->
                 <form #form="ngForm" (ngSubmit)="onTodoSubmit(form)" class="weekday-todos" *ngIf="dailyTodoLists.isMondayDisplayed">
                   <input ngModel name="monday" type="text" />
                   <select ngModel name="priority">
@@ -42,14 +46,19 @@
                 </div>
             </div>
 
-            <div class="weekday-planner">-->
-                <!-- Wochentaganzeige 
+            <!--
+              
+              
+              
+              
+              <div class="weekday-planner">
+                 Wochentaganzeige 
                 <button class="weekday-heading" (click)="toggleTodoList('tuesday')">
                     <h3>Dienstag</h3>
                     <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isTuesdayDisplayed" />
                     <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isTuesdayDisplayed"/>
-                  </button>-->
-                <!-- Alle Aufgaben an diesem Tag 
+                  </button>
+                 Alle Aufgaben an diesem Tag 
                 <form #form="ngForm" (ngSubmit)="onTodoSubmit(form)" class="weekday-todos" *ngIf="dailyTodoLists.isTuesdayDisplayed">
                   <input ngModel name="tuesday" type="text" />
                   <select ngModel name="priority">
@@ -63,16 +72,16 @@
                 <div *ngFor="let todo of allTuesdayTodos; index as indexOfTodo">
                   <p>{{ todo.priority }} | {{ todo.task }} <input type="checkbox" name="done" [(ngModel)]="todo.done" (click)="updateTodoStatus(indexOfTodo, 'tuesday')" /></p>
                 </div>
-            </div>
+            </div>-->
 
-            <div class="weekday-planner">-->
-                <!-- Wochentaganzeige 
+           <!-- <div class="weekday-planner">
+                 Wochentaganzeige 
                 <button class="weekday-heading" (click)="toggleTodoList('wednesday')">
                   <h3>Mittwoch</h3>
                   <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isWednesdayDisplayed" />
                   <img src="../../../assets/icons/arrowDown.png" alt="Zeigt Todo-Liste" *ngIf="dailyTodoLists.isWednesdayDisplayed" />
-                </button>-->
-                <!-- Alle Aufgaben an diesem Tag 
+                </button>
+                 Alle Aufgaben an diesem Tag 
                 <form #form="ngForm" (ngSubmit)="onTodoSubmit(form)" class="weekday-todos" *ngIf="dailyTodoLists.isWednesdayDisplayed">
                   <input ngModel name="wednesday" type="text" />
                   <select ngModel name="priority">
@@ -86,10 +95,10 @@
                 <div *ngFor="let todo of allWednesdayTodos; index as indexOfTodo">
                   <p>{{ todo.priority }} | {{ todo.task }} <input type="checkbox" name="done" [(ngModel)]="todo.done" (click)="updateTodoStatus(indexOfTodo, 'wednesday')" /></p>
                 </div>
-            </div>
-
-            <div class="weekday-planner">-->
-                <!-- Wochentaganzeige 
+            </div>-->
+            <!--
+            <div class="weekday-planner">
+                 Wochentaganzeige 
                 <button class="weekday-heading" (click)="toggleTodoList('thursday')">
                     <h3>Donnerstag</h3>
                     <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isThursdayDisplayed" />
@@ -157,8 +166,8 @@
                 </div>
             </div>
 
-            <div class="weekday-planner">-->
-                <!-- Wochentaganzeige 
+            <div class="weekday-planner">
+                 Wochentaganzeige 
                 <button class="weekday-heading" (click)="toggleTodoList('sunday')">
                     <h3>Sonntag</h3>
                     <img src="../../../assets/icons/arrowRight.png" alt="Öffnet Todo-Liste" *ngIf="!dailyTodoLists.isSundayDisplayed" />
@@ -179,7 +188,8 @@
                   <p>{{ todo.priority }} | {{ todo.task }} <input type="checkbox" name="done" [(ngModel)]="todo.done" (click)="updateTodoStatus(indexOfTodo, 'sunday')" /></p>
                 </div>
             </div>
+            -->
         </section>
-      -->
+      
     </div>
 </div>

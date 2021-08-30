@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/shared/todo.model';
-import { TodosService } from 'src/app/shared/todos.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-main-dashboard',
@@ -13,6 +13,7 @@ export class MainDashboardComponent implements OnInit {
   week: number = 0;
   nextWeek!: string;
   previousWeek!: string;
+  mondayNumberOfDoneTodos: number = 0;
 
   todos: Todo[] = [];
   allMondayTodos: Todo[] = [];
@@ -33,21 +34,12 @@ export class MainDashboardComponent implements OnInit {
     isSundayDisplayed: false
   };
 
-  constructor(private todosService: TodosService, public activatedRoute: ActivatedRoute) { }
+  constructor(public activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
       this.week = data.id; 
     });
- 
-    this.todos = this.todosService.getAllTodos();
-    this.allMondayTodos = this.todosService.getAllMondayTodos()  
-    this.allTuesdayTodos = this.todosService.getAllTuesdayTodos();
-    this.allWednesdayTodos = this.todosService.getAllWednesdayTodos();
-    this.allThursdayTodos = this.todosService.getAllThursdayTodos();
-    this.allFridayTodos = this.todosService.getAllFridayTodos();
-    this.allSaturdayTodos = this.todosService.getAllSaturdayTodos();
-    this.allSundayTodos = this.todosService.getAllSundayTodos();
   }
 
   getNextWeek() {
@@ -75,7 +67,31 @@ export class MainDashboardComponent implements OnInit {
     if (this.week >= 2) return true 
     else return false;
   }
-  
+
+  onTodoSubmit(form: NgForm) {
+    if (form.value.monday) {
+      this.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done), 'monday');
+    }
+    
+    form.reset();
+  }
+
+  addTodo(todo: Todo, weekday: string) {
+    switch(weekday) {
+      case "monday": {
+        this.allMondayTodos.push(todo);
+        break;
+      }   
+      case "tuesday": {
+        this.allTuesdayTodos.push(todo);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
+  /*
   onTodoSubmit(form: NgForm) {
     if (form.value.monday) {
         this.todosService.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done), 'monday');
@@ -99,11 +115,23 @@ export class MainDashboardComponent implements OnInit {
       this.todosService.addTodo(new Todo(form.value.sunday, 'sunday', form.value.priority, form.value.done), 'sunday');
     }
     form.reset();
+  }console.log(this.allMondayTodos)
+    for (let i = 0; i < this.allMondayTodos.length; i++) {
+      
+    }
+*/
+updateTodoStatus(index: number, weekday: string) { 
+  switch(weekday) {
+    case "monday": {
+      this.allMondayTodos[index].done = !this.allMondayTodos[index].done;
+      this.mondayNumberOfDoneTodos += 1;
+      break;
+    }   
+    default: {
+      break;
+    }
   }
-
-  updateTodoStatus(indexOfTodo: number, weekday: string) {
-    this.todosService.updateTodo(indexOfTodo, weekday);
-  }
+}
 
   toggleTodoList(weekday: string) {
     switch(weekday) {
