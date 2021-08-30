@@ -1,16 +1,24 @@
 <div class="dashboard-container">
     <nav class="dashboard-navigation">
-        <a routerLink="/dashboard/main-dashboard">Übersicht</a>
+        <a routerLink="/dashboard/main-dashboard/1">Übersicht</a>
         <a routerLink="/dashboard/goals-dashboard">Ziele</a>
         <a routerLink="/dashboard/settings">Einstellungen</a>
     </nav>
 
     <div class="maindashboard-container">
-        <h2>Woche 1</h2>
+      <div *ngIf="hasPreviousWeek()">
+        <a [routerLink]="getPreviousWeek()">letzte Woche</a>
+      </div>
+
+      <h2>Woche {{ week }}</h2>
+      
+      <div *ngIf="hasNextWeek()">
+        <a [routerLink]="getNextWeek()">nächste Woche</a>
+      </div>
 
         <!--<app-uebersicht-diagramm></app-uebersicht-diagramm>
         <section class="weekly-planner-container">
-            <div class="weekday-planner">-->
+            <div class="weekday-planner"> -->
                 <!-- Wochentaganzeige 
                 <button class="weekday-heading" (click)="toggleTodoList('monday')">
                   <h3>Montag</h3>
