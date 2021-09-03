@@ -10,12 +10,29 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./main-dashboard.component.scss']
 })
 export class MainDashboardComponent implements OnInit {
+  oldTodos: Todo[] = [];
+  currentWeeksTodos: Todo[] = [];
   week: number = 0;
   nextWeek!: string;
   previousWeek!: string;
   mondayNumberOfDoneTodos: number = 0;
-
-  todos: Todo[] = [];
+  filteredAllMondayTodos!: [];
+/*
+  todos: { id: number, mondayTodos: Todo[], tuesdayTodos: Todo[] }[] = [
+    { id: 1, mondayTodos: [], tuesdayTodos: [] },
+    { id: 2, mondayTodos: [], tuesdayTodos: [] },
+    { id: 3, mondayTodos: [], tuesdayTodos: [] },
+    { id: 4, mondayTodos: [], tuesdayTodos: [] },
+    { id: 5, mondayTodos: [], tuesdayTodos: [] },
+    { id: 6, mondayTodos: [], tuesdayTodos: [] },
+    { id: 7, mondayTodos: [], tuesdayTodos: [] },
+    { id: 8, mondayTodos: [], tuesdayTodos: [] },
+    { id: 9, mondayTodos: [], tuesdayTodos: [] },
+    { id: 10, mondayTodos: [], tuesdayTodos: [] },
+    { id: 11, mondayTodos: [], tuesdayTodos: [] },
+    { id: 12, mondayTodos: [], tuesdayTodos: [] },
+  ]*/
+  /*
   allMondayTodos: Todo[] = [];
   allTuesdayTodos: Todo[] = [];
   allWednesdayTodos: Todo[] = [];
@@ -23,7 +40,7 @@ export class MainDashboardComponent implements OnInit {
   allFridayTodos: Todo[] = [];
   allSaturdayTodos: Todo[] = [];
   allSundayTodos: Todo[] = [];
-
+*/
   dailyTodoLists = {
     isMondayDisplayed: false,
     isTuesdayDisplayed: false,
@@ -40,6 +57,17 @@ export class MainDashboardComponent implements OnInit {
     this.activatedRoute.data.subscribe(data => {
       this.week = data.id; 
     });
+
+    // Wenn es am Anfang noch keine Daten gibt, wird eine leerer Array in Local Storage gespeichert.
+    this.oldTodos = JSON.parse(localStorage.getItem('todos') || '[]');
+
+    // Wenn eine Komponente neu lädt, dann werden nur die Todos angezeigt, die zu dieser Woche gehören.
+    for (let i = 0; i < this.oldTodos.length; i++) {
+      if (this.oldTodos[i].week === this.week) {
+        this.currentWeeksTodos.push(this.oldTodos[i]);
+        console.log(this.currentWeeksTodos)
+      } 
+    }  
   }
 
   getNextWeek() {
@@ -70,26 +98,32 @@ export class MainDashboardComponent implements OnInit {
 
   onTodoSubmit(form: NgForm) {
     if (form.value.monday) {
-      this.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done), 'monday');
+      this.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done, this.week), 'monday');
     }
     
     form.reset();
   }
 
   addTodo(todo: Todo, weekday: string) {
+    
     switch(weekday) {
+      
       case "monday": {
-        this.allMondayTodos.push(todo);
+        this.oldTodos.push(todo);  
+        let convertedOldTodos = JSON.stringify(this.oldTodos);
+        localStorage.setItem('todos', convertedOldTodos);
+        this.currentWeeksTodos.push(todo);
         break;
       }   
       case "tuesday": {
-        this.allTuesdayTodos.push(todo);
+        //this.allTuesdayTodos.push(todo);
         break;
       }
       default: {
         break;
       }
     }
+    
   }
   /*
   onTodoSubmit(form: NgForm) {
@@ -120,11 +154,18 @@ export class MainDashboardComponent implements OnInit {
       
     }
 */
+/*
 updateTodoStatus(index: number, weekday: string) { 
   switch(weekday) {
     case "monday": {
       this.allMondayTodos[index].done = !this.allMondayTodos[index].done;
-      this.mondayNumberOfDoneTodos += 1;
+      if (this.allMondayTodos[index].done === true) {
+        this.mondayNumberOfDoneTodos += 1;
+      } else {
+        this.mondayNumberOfDoneTodos -= 1;
+      }
+      localStorage.setItem("mondayNumberOfDoneTodos", JSON.stringify(this.mondayNumberOfDoneTodos));
+      localStorage.setItem('allMondayTodos', JSON.stringify(this.allMondayTodos));
       break;
     }   
     default: {
@@ -133,6 +174,13 @@ updateTodoStatus(index: number, weekday: string) {
   }
 }
 
+  deleteTodos() {
+    this.allMondayTodos = [];
+    this.mondayNumberOfDoneTodos = 0;
+    localStorage.removeItem("mondayNumberOfDoneTodos");
+    localStorage.removeItem('allMondayTodos');
+  }
+*/
   toggleTodoList(weekday: string) {
     switch(weekday) {
       case "monday": {
