@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainDashboardComponent implements OnInit {
   oldTodos: Todo[] = [];
+  currentWeeksTodos: Todo[] = [];
   week: number = 0;
   nextWeek!: string;
   previousWeek!: string;
@@ -59,7 +60,14 @@ export class MainDashboardComponent implements OnInit {
 
     // Wenn es am Anfang noch keine Daten gibt, wird eine leerer Array in Local Storage gespeichert.
     this.oldTodos = JSON.parse(localStorage.getItem('todos') || '[]');
-    
+
+    // Wenn eine Komponente neu lädt, dann werden nur die Todos angezeigt, die zu dieser Woche gehören.
+    for (let i = 0; i < this.oldTodos.length; i++) {
+      if (this.oldTodos[i].week === this.week) {
+        this.currentWeeksTodos.push(this.oldTodos[i]);
+        console.log(this.currentWeeksTodos)
+      } 
+    }  
   }
 
   getNextWeek() {
@@ -101,14 +109,10 @@ export class MainDashboardComponent implements OnInit {
     switch(weekday) {
       
       case "monday": {
-        this.oldTodos.push(todo);
-          
+        this.oldTodos.push(todo);  
         let convertedOldTodos = JSON.stringify(this.oldTodos);
-        
         localStorage.setItem('todos', convertedOldTodos);
-        
-        
-        //console.log(localStorage.getItem("todos"))
+        this.currentWeeksTodos.push(todo);
         break;
       }   
       case "tuesday": {
@@ -119,7 +123,7 @@ export class MainDashboardComponent implements OnInit {
         break;
       }
     }
-    console.log(localStorage.getItem("todos"))
+    
   }
   /*
   onTodoSubmit(form: NgForm) {
