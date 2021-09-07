@@ -10,37 +10,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./main-dashboard.component.scss']
 })
 export class MainDashboardComponent implements OnInit {
-  oldTodos: Todo[] = [];
-  currentWeeksTodos: Todo[] = [];
+  allTodos: Todo[] = []; // sämtliche Todos aus allen Komponenten
+  currentWeeksMondayTodos: Todo[] = []; // aktuelle Todos von einer Komponente
+  currentWeeksTuesdayTodos: Todo[] = [];
   week: number = 0;
   nextWeek!: string;
   previousWeek!: string;
-  mondayNumberOfDoneTodos: number = 0;
-  filteredAllMondayTodos!: [];
-/*
-  todos: { id: number, mondayTodos: Todo[], tuesdayTodos: Todo[] }[] = [
-    { id: 1, mondayTodos: [], tuesdayTodos: [] },
-    { id: 2, mondayTodos: [], tuesdayTodos: [] },
-    { id: 3, mondayTodos: [], tuesdayTodos: [] },
-    { id: 4, mondayTodos: [], tuesdayTodos: [] },
-    { id: 5, mondayTodos: [], tuesdayTodos: [] },
-    { id: 6, mondayTodos: [], tuesdayTodos: [] },
-    { id: 7, mondayTodos: [], tuesdayTodos: [] },
-    { id: 8, mondayTodos: [], tuesdayTodos: [] },
-    { id: 9, mondayTodos: [], tuesdayTodos: [] },
-    { id: 10, mondayTodos: [], tuesdayTodos: [] },
-    { id: 11, mondayTodos: [], tuesdayTodos: [] },
-    { id: 12, mondayTodos: [], tuesdayTodos: [] },
-  ]*/
-  /*
-  allMondayTodos: Todo[] = [];
-  allTuesdayTodos: Todo[] = [];
-  allWednesdayTodos: Todo[] = [];
-  allThursdayTodos: Todo[] = [];
-  allFridayTodos: Todo[] = [];
-  allSaturdayTodos: Todo[] = [];
-  allSundayTodos: Todo[] = [];
-*/
+
   dailyTodoLists = {
     isMondayDisplayed: false,
     isTuesdayDisplayed: false,
@@ -59,13 +35,20 @@ export class MainDashboardComponent implements OnInit {
     });
 
     // Wenn es am Anfang noch keine Daten gibt, wird eine leerer Array in Local Storage gespeichert.
-    this.oldTodos = JSON.parse(localStorage.getItem('todos') || '[]');
+    this.allTodos = JSON.parse(localStorage.getItem('todos') || '[]');
 
     // Wenn eine Komponente neu lädt, dann werden nur die Todos angezeigt, die zu dieser Woche gehören.
-    for (let i = 0; i < this.oldTodos.length; i++) {
-      if (this.oldTodos[i].week === this.week) {
-        this.currentWeeksTodos.push(this.oldTodos[i]);
-        console.log(this.currentWeeksTodos)
+    for (let i = 0; i < this.allTodos.length; i++) {
+      if (this.allTodos[i].week === this.week) {
+        switch (this.allTodos[i].weekday) {
+          case 'monday': {
+            this.currentWeeksMondayTodos.push(this.allTodos[i]);
+            break;
+          } case 'tuesday': {
+            this.currentWeeksTuesdayTodos.push(this.allTodos[i]);
+            break;
+          }
+        }
       } 
     }  
   }
@@ -98,32 +81,28 @@ export class MainDashboardComponent implements OnInit {
 
   onTodoSubmit(form: NgForm) {
     if (form.value.monday) {
-      this.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done, this.week), 'monday');
+      this.addTodo(new Todo(form.value.monday, 'monday', form.value.priority, form.value.done, this.week))
+    } else if (form.value.tuesday) {
+      this.addTodo(new Todo(form.value.tuesday, 'tuesday', form.value.priority, form.value.done, this.week))
     }
     
     form.reset();
   }
 
-  addTodo(todo: Todo, weekday: string) {
-    
-    switch(weekday) {
-      
-      case "monday": {
-        this.oldTodos.push(todo);  
-        let convertedOldTodos = JSON.stringify(this.oldTodos);
-        localStorage.setItem('todos', convertedOldTodos);
-        this.currentWeeksTodos.push(todo);
+  addTodo(todo: Todo) {
+    this.allTodos.push(todo);  
+    let convertedAllTodos = JSON.stringify(this.allTodos);
+    localStorage.setItem('todos', convertedAllTodos);
+
+    switch (todo.weekday) {
+      case 'monday': {
+        this.currentWeeksMondayTodos.push(todo);
         break;
-      }   
-      case "tuesday": {
-        //this.allTuesdayTodos.push(todo);
-        break;
-      }
-      default: {
+      } case 'tuesday': {
+        this.currentWeeksTuesdayTodos.push(todo);
         break;
       }
     }
-    
   }
   /*
   onTodoSubmit(form: NgForm) {
@@ -154,26 +133,19 @@ export class MainDashboardComponent implements OnInit {
       
     }
 */
-/*
-updateTodoStatus(index: number, weekday: string) { 
-  switch(weekday) {
-    case "monday": {
-      this.allMondayTodos[index].done = !this.allMondayTodos[index].done;
-      if (this.allMondayTodos[index].done === true) {
-        this.mondayNumberOfDoneTodos += 1;
-      } else {
-        this.mondayNumberOfDoneTodos -= 1;
-      }
-      localStorage.setItem("mondayNumberOfDoneTodos", JSON.stringify(this.mondayNumberOfDoneTodos));
-      localStorage.setItem('allMondayTodos', JSON.stringify(this.allMondayTodos));
-      break;
-    }   
-    default: {
-      break;
-    }
-  }
-}
 
+  updateTodoStatus(todo: Todo) {   
+    for (let oneTodo of this.allTodos) {
+      if (todo.week === oneTodo.week && todo.task === oneTodo.task && todo.weekday === oneTodo.weekday) {
+        oneTodo.done = !oneTodo.done; 
+      }
+    }
+
+    // aktualisiert den Aufgabenstand "true/false" in localStorage
+    let convertedAllTodos = JSON.stringify(this.allTodos);
+    localStorage.setItem('todos', convertedAllTodos);
+  }
+/*
   deleteTodos() {
     this.allMondayTodos = [];
     this.mondayNumberOfDoneTodos = 0;
