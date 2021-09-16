@@ -13,7 +13,7 @@ import { SigninComponent } from './pages/signin/signin.component';
   declarations: [
     AppComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
