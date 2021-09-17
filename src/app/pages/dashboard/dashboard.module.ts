@@ -11,6 +11,7 @@ import { GoalFormComponent } from '../../dashboard-pages/goals-dashboard/goal-fo
 import { GoalsDisplayComponent } from '../../dashboard-pages/goals-dashboard/goals-display/goals-display.component';
 import { WeeklyPlannerComponent } from '../../dashboard-pages/main-dashboard/weekly-planner/weekly-planner.component';
 import { HabitTrackerComponent } from 'src/app/dashboard-pages/main-dashboard/habit-tracker/habit-tracker.component';
+import { WeeklyGoalsComponent } from 'src/app/dashboard-pages/main-dashboard/weekly-goals/weekly-goals.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HabitTrackerComponent } from 'src/app/dashboard-pages/main-dashboard/ha
     GoalFormComponent,
     GoalsDisplayComponent,
     WeeklyPlannerComponent,
-    HabitTrackerComponent
+    HabitTrackerComponent,
+    WeeklyGoalsComponent
   ],
   imports: [
     CommonModule,
