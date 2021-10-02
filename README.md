@@ -22,4 +22,4 @@
 
 <p><strong>Please note that this is the first time that I take part in the Hacktoberfest. If your accepted pull requests somehow don't count, I'm sorry for that.</strong></p>
 
-<h4>Take a look at <a href="12weekproductivitychallenge.netlify.app">current state of the website</h4>?</h4>
+<h4>Take a look at <a href="12weekproductivitychallenge.netlify.app">current state of the website</a>?</h4>
