@@ -1,7 +1,7 @@
 <div class="goals-list">
     <div class="goal" *ngFor="let goal of goals; index as indexOfElement;" [ngClass]="goal.accomplished ? 'greenBorder' : ''">
-        <div class="zielanzeige--top">
-            <h4>{{ indexOfElement + 1 }}. Ziel: <strong>{{ goal.name }}</strong></h4>
+        <div class="goalsdisplay--top">
+            <h4>{{ indexOfElement + 1 }}. goal: <strong>{{ goal.name }}</strong></h4>
         
             <div class="action-buttons-container">
                 <button class="action-button" (click)="markGoalAsFinished(indexOfElement)" >
@@ -14,8 +14,11 @@
             </div>
         </div>
         <ul>
-            <li *ngIf="goal.reason" class="margin--bottom"><b>Warum?</b> <br /> {{ goal.reason }}</li>
+            <li *ngIf="goal.reason" class="margin--bottom"><b>Why?</b> <br /> {{ goal.reason }}</li>
     
+            <!-- Task: Refactor feature of adding minigoals 
+                (At the moment you can only add 4 minigoals [also see Goal model & goals-display] that are hard coded. 
+                Make it so there can an infinite number of goals be added. -->
             <li *ngIf="goal.deadlineOne && goal.deadlineDescriptionOne">{{ changeDateFormat(goal.deadlineOne) }} - {{ goal.deadlineDescriptionOne }}</li>
     
             <li *ngIf="goal.deadlineTwo && goal.deadlineDescriptionTwo">{{ changeDateFormat(goal.deadlineTwo) }} - {{ goal.deadlineDescriptionTwo }}</li>

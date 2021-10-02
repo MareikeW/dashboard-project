@@ -43,7 +43,5 @@ export class MainDashboardComponent implements OnInit {
   hasPreviousWeek() {
     if (this.week >= 2) return true 
     else return false;
-  }
-
-  
+  } 
 }
