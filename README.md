@@ -1,27 +1,18 @@
-# DashboardProject
+<h1>Welcome to the Productivity App project! 👋</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+<p>In this project, we create an app where people can track their productivity over a 12 week period.</p>
 
-## Development server
+<h3>Some Features ✍🏼:</h3>
+<ul>
+  <li>Set your main goals for the challenge.</li>
+  <li>Create mini goals for each main goal.</li>
+  <li>Each week has its own dashboard.</li>
+  <li>Weekly planner, where you can create a todo list for every day of the week.</li>
+  <li>A habit tracker, where you can track your daily habits.</li>
+  <li>Set your top three goals for each week.</li>
+  <li>See your weekly progress in charts: todos per day & habits per week.</li>
+  <li>Review your week</li>
+  <li>Change the colours of your dashboard</li>
+</ul>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<p>We use <a href="https://angular.io/guide/setup-local">Angular 12</a>, TypeScript, and <a href="https://sass-lang.com/install">SCSS</a>.</p>
