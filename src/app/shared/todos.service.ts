@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo.model';
-import { DashboardModule } from '../pages/dashboard/dashboard.module';
 
 @Injectable({
   providedIn: 'root'
@@ -127,6 +126,5 @@ export class TodosService {
         break;
       }
     }
-  }
-  
+  }  
 }

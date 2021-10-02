@@ -2,18 +2,18 @@
         <table>
             <thead>
                 <tr>
-                    <th>Gewohnheit</th>
-                    <th>Mo</th>
-                    <th>Di</th>
-                    <th>Mi</th>
-                    <th>Do</th>
-                    <th>Fr</th>
-                    <th>Sa</th>
-                    <th>So</th>
+                    <th>Habit</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
                 </tr>
             </thead>
             
-            <!-- For-Loop, um alle gespeicherten Gewohnheiten anzuzeigen -->
+            <!-- For-Loop, to display all saved habits -->
             <tbody *ngFor="let habit of currentWeeksHabits">
                 <tr>
                     <td>
@@ -45,6 +45,6 @@
         </table>
         <form #form="ngForm" (ngSubmit)="onHabitSubmit(form)">
             <input ngModel type="text" name="habit" />
-            <button type="submit">Anlegen</button>
+            <button type="submit">Submit</button>
         </form>    
 </section>

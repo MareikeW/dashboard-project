@@ -16,10 +16,11 @@ export class GoalFormComponent implements OnInit {
   constructor(private goalsService: GoalsService) {}
 
   ngOnInit(): void {
+    /* Task: Save goals to LocalStorage. See e.g. habit-tracker component */
     this.goals = this.goalsService.getAllGoals();
   }
 
-  // neuer Array mit den Werten aus den Formularfeldern wird angelegt und das Formular zurückgesetzt.
+  // A new array with the values of the formfields will be created and the form will get resetted.
   onFormSubmit(form: NgForm) {
     if(form.value.name) {
       this.goalsService.addGoal(new Goal(

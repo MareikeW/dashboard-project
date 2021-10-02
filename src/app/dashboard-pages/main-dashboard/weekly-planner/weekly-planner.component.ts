@@ -3,14 +3,18 @@ import { Todo } from 'src/app/shared/todo.model';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
+/* Task: Implement a function to delete a todo that has been added in the weekly-planner component */
+
+/* Task: Take the logic of adding/updating a todo and put it in its own seperate function 
+(weekly-planner component, see e.g. habit-tracker where it has already be implemented) */
 @Component({
   selector: 'app-weekly-planner',
   templateUrl: './weekly-planner.component.html',
   styleUrls: ['./weekly-planner.component.scss']
 })
 export class WeeklyPlannerComponent implements OnInit {
-  allTodos: Todo[] = []; // sämtliche Todos aus allen Komponenten
-  currentWeeksMondayTodos: Todo[] = []; // aktuelle Todos von einer Komponente
+  allTodos: Todo[] = []; // todos of ALL the components
+  currentWeeksMondayTodos: Todo[] = []; // todos of this component, here: all monday todos of this component
   currentWeeksTuesdayTodos: Todo[] = [];
   currentWeeksWednesdayTodos: Todo[] = [];
   currentWeeksThursdayTodos: Todo[] = [];
@@ -37,10 +41,10 @@ export class WeeklyPlannerComponent implements OnInit {
       this.week = data.id; 
     });
 
-    // Wenn es am Anfang noch keine Daten gibt, wird eine leerer Array in Local Storage gespeichert.
+    // If at the beginning there is no data saved, an empty array will be saved into LocalStorage.
     this.allTodos = JSON.parse(localStorage.getItem('todos') || '[]');
 
-    // Wenn eine Komponente neu lädt, dann werden nur die Todos angezeigt, die zu dieser Woche gehören.
+    // If the component gets reloaded, then only the todos of this week will be displayed.
     for (let i = 0; i < this.allTodos.length; i++) {
       if (this.allTodos[i].week === this.week) {
         switch (this.allTodos[i].weekday) {
@@ -92,7 +96,9 @@ export class WeeklyPlannerComponent implements OnInit {
   }
 
   addTodo(todo: Todo) {
-    this.allTodos.push(todo);  
+    this.allTodos.push(todo);
+    // adds todo to array in LocalStorage 
+    // this should be put into its own function and then be called here 
     let convertedAllTodos = JSON.stringify(this.allTodos);
     localStorage.setItem('todos', convertedAllTodos);
 
@@ -129,18 +135,12 @@ export class WeeklyPlannerComponent implements OnInit {
       }
     }
 
-    // aktualisiert den Aufgabenstand "true/false" in localStorage
+    // updates the saved todos in LocalStorage
+    // this should be put into its own function and then be called here
     let convertedAllTodos = JSON.stringify(this.allTodos);
     localStorage.setItem('todos', convertedAllTodos);
   }
-/*
-  deleteTodos() {
-    this.allMondayTodos = [];
-    this.mondayNumberOfDoneTodos = 0;
-    localStorage.removeItem("mondayNumberOfDoneTodos");
-    localStorage.removeItem('allMondayTodos');
-  }
-*/
+
   toggleTodoList(weekday: string) {
     switch(weekday) {
       case "monday": {

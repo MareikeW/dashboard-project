@@ -21,7 +21,7 @@ export class HabitTrackerComponent implements OnInit {
       this.week = data.id; 
     });
 
-    // Wenn es am Anfang noch keine Daten gibt, wird eine leerer Array in Local Storage gespeichert.
+    // If at the beginning there is no data saved, an empty array will be saved into LocalStorage.
     this.allHabits = JSON.parse(localStorage.getItem('habits') || '[]');
 
     for (let i = 0; i < this.allHabits.length; i++) {
@@ -42,7 +42,7 @@ export class HabitTrackerComponent implements OnInit {
   addHabit(habit: Habit) {
     this.currentWeeksHabits.push(habit);
     this.allHabits.push(habit);
-    this.addToLocalStorage();
+    this.updateLocalStorage();
   }
 
   updateHabitStatus(habit: Habit, weekday: string) {   
@@ -84,11 +84,10 @@ export class HabitTrackerComponent implements OnInit {
       }
     }
 
-    this.addToLocalStorage();
+    this.updateLocalStorage();
   }
 
-  addToLocalStorage() {
-    // aktualisiert den Gewohnheitenstand "true/false" in localStorage
+  updateLocalStorage() {
     let jsonHabits = JSON.stringify(this.allHabits);
     localStorage.setItem('habits', jsonHabits);
   }

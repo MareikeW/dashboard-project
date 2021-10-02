@@ -21,7 +21,7 @@ export class WeeklyGoalsComponent implements OnInit {
       this.week = data.id; 
     });
 
-    // Wenn es am Anfang noch keine Daten gibt, wird eine leerer Array in Local Storage gespeichert.
+    // If at the beginning there is no data saved, an empty array will be saved into LocalStorage.
     this.allWeekGoals = JSON.parse(localStorage.getItem('weekgoals') || '[]');
 
     for (let i = 0; i < this.allWeekGoals.length; i++) {
@@ -46,7 +46,6 @@ export class WeeklyGoalsComponent implements OnInit {
   }
 
   addToLocalStorage() {
-    // aktualisiert Wochenzielstand "true/false" in localStorage
     let jsonWeekGoals = JSON.stringify(this.allWeekGoals);
     localStorage.setItem('weekgoals', jsonWeekGoals);
   }

@@ -1,38 +1,39 @@
 <div class="add-goals-container">
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
         <div class="form-head">
-            <h2 *ngIf="show">Ein neues Ziel anlegen:</h2>
-            <button title="Minimieren" (click)="show = !show" [ngClass]="show ? 'minButton' : 'newButton'">{{show ? '_' : 'Neues Ziel'}}</button>
+            <h2 *ngIf="show">Add a new goal:</h2>
+            <!-- Task: Remove the title "minimize" when the button is in minimize mode. -->
+            <button title="minimize" (click)="show = !show" [ngClass]="show ? 'minButton' : 'newButton'">{{show ? '_' : 'New goal'}}</button>
         </div>
 
         <div class="form-body" *ngIf="show">
             <div>
-                <input ngModel name="name" type="text" placeholder="Mein Ziel..." #goalName="ngModel" required minlength="5"/>
+                <input ngModel name="name" type="text" placeholder="My goal..." #goalName="ngModel" required minlength="5"/>
             </div>
             <div>
-                <textarea ngModel name="reason" type="text" placeholder="Warum möchte ich dieses Ziel erreichen?"></textarea>
+                <textarea ngModel name="reason" type="text" placeholder="Why do I want to reach this goal?"></textarea>
             </div>
 
-            <p>Fristen für Miniziele:</p>
-            <div class="miniziel-container">
+            <p>Deadlines for minigoals:</p>
+            <div class="minigoal-container">
                 <input ngModel name="deadlineOne" type="date" />
-                <input ngModel name="deadlineDescriptionOne" type="text" placeholder="Miniziel 1" />
+                <input ngModel name="deadlineDescriptionOne" type="text" placeholder="Minigoal 1" />
             </div>
-            <div class="miniziel-container">
+            <div class="minigoal-container">
                 <input ngModel name="deadlineTwo" type="date" />
-                <input ngModel name="deadlineDescriptionTwo" type="text" placeholder="Miniziel 2" />
+                <input ngModel name="deadlineDescriptionTwo" type="text" placeholder="Minigoal 2" />
             </div>
-            <div class="miniziel-container">
+            <div class="minigoal-container">
                 <input ngModel name="deadlineThree" type="date" />
-                <input ngModel name="deadlineDescriptionThree" type="text" placeholder="Miniziel 3" />
+                <input ngModel name="deadlineDescriptionThree" type="text" placeholder="Minigoal 3" />
             </div>
-            <div class="miniziel-container">
+            <div class="minigoal-container">
                 <input ngModel name="deadlineFour" type="date" />
-                <input ngModel name="deadlineDescriptionFour" type="text" placeholder="Miniziel 4" />
+                <input ngModel name="deadlineDescriptionFour" type="text" placeholder="Minigoal 4" />
             </div>
             
             <div class="add-goal-button-container">
-                <button type="submit" [ngClass]="goalName.valid ? 'enableButton' : 'disableButton'">Neues Ziel anlegen</button>
+                <button type="submit" [ngClass]="goalName.valid ? 'enableButton' : 'disableButton'">Add new goal</button>
             </div>
         </div>
     </form>
