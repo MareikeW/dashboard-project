@@ -1,11 +1,21 @@
 <section>
-    <h3>Weekly goals</h3>
-    <!-- Up to three weekly goals can be added. -->
-    <form #form="ngForm" (ngSubmit)="onWeekGoalSubmit(form)" *ngIf="currentWeeksGoals.length <= 2">
-        <input ngModel type="text" name="weekGoal" placeholder="New goal" />
-        <button type="submit">Add goal</button>
-    </form>
-    <ol *ngFor="let weekgoal of currentWeeksGoals; index as indexOfWeekGoal">
-        <li>{{ indexOfWeekGoal + 1 }}. {{ weekgoal.description }}</li>
-    </ol>
+  <h3>Weekly Goals</h3>
+  <!-- Up to three weekly goals can be added. -->
+  <form
+    #form="ngForm"
+    (ngSubmit)="onWeekGoalSubmit(form)"
+    *ngIf="currentWeeksGoals.length <= 2"
+  >
+    <input
+      ngModel
+      type="text"
+      name="weekGoal"
+      placeholder="Enter New Goal Here"
+    />
+    <br />
+    <button type="submit">Add Goal</button>
+  </form>
+  <ol *ngFor="let weekgoal of currentWeeksGoals; index as indexOfWeekGoal">
+    <li>{{ indexOfWeekGoal + 1 }}. {{ weekgoal.description }}</li>
+  </ol>
 </section>
