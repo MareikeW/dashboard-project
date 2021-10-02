@@ -18,3 +18,6 @@
 <p>We use <a href="https://angular.io/guide/setup-local">Angular 12</a>, TypeScript, and <a href="https://sass-lang.com/install">SCSS</a>.</p>
 
 <p>🌻 You can find information on how to contribute to this project in the CONTIBRUTING.md file.</p>
+
+
+<p><strong>Please note that this is the first time that I take part in the Hacktoberfest. If your accepted pull requests somehow don't count, I'm sorry for that.</strong></p>
