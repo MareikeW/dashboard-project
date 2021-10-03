@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import { WeeklyPlannerComponent } from './weekly-planner.component';
 
 describe('WeeklyPlannerComponent', () => {
@@ -8,9 +9,14 @@ describe('WeeklyPlannerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WeeklyPlannerComponent ]
-    })
-    .compileComponents();
+      declarations: [WeeklyPlannerComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { data: of({ id: 1 }) },
+        },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

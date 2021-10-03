@@ -10,6 +10,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
+      require('karma-spec-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -26,18 +27,21 @@ module.exports = function (config) {
     },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/dashboard-project'),
-      subdir: '.',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+      reporters: [{ type: 'lcov', subdir: '.' }, { type: 'text-summary' }],
+      fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['spec', 'kjhtml', 'coverage'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+    customLaunchers: {
+      headlessChrome: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
+      },
+    },
     singleRun: false,
     restartOnFileChange: true
   });

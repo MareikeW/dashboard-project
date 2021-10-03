@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import { WeeklyGoalsComponent } from './weekly-goals.component';
+
 
 describe('WeeklyGoalsComponent', () => {
   let component: WeeklyGoalsComponent;
@@ -8,7 +11,14 @@ describe('WeeklyGoalsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WeeklyGoalsComponent ]
+      declarations: [ WeeklyGoalsComponent ],
+      imports: [FormsModule],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { data: of({ id: 1 }) },
+        },
+      ],
     })
     .compileComponents();
   });
