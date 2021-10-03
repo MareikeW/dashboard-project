@@ -6,18 +6,18 @@
   </nav>
 
   <div class="maindashboard-container">
+    <article class="weekdisplay section-header">
+      <div *ngIf="hasPreviousWeek()">
+        <a [routerLink]="getPreviousWeek()">last week</a>
+      </div>
+
+      <h2>Week {{ week }}</h2>
+
+      <div *ngIf="hasNextWeek()">
+        <a [routerLink]="getNextWeek()">next week</a>
+      </div>
+    </article>
     <section class="grid-container">
-      <article class="weekdisplay">
-        <div *ngIf="hasPreviousWeek()">
-          <a [routerLink]="getPreviousWeek()">last week</a>
-        </div>
-
-        <h2>Week {{ week }}</h2>
-
-        <div *ngIf="hasNextWeek()">
-          <a [routerLink]="getNextWeek()">next week</a>
-        </div>
-      </article>
       <div class="grid-container__inner">
         <article class="dashboard-chart"><h2>Dashboard Chart</h2></article>
         <app-weekly-goals></app-weekly-goals>

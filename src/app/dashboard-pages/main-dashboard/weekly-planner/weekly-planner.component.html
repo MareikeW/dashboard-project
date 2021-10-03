@@ -21,7 +21,7 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isMondayDisplayed"
     >
-      <input ngModel name="monday" type="text" />
+      <input ngModel name="monday" placeholder="Add a task..." type="text" />
       <select ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
@@ -71,7 +71,7 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isTuesdayDisplayed"
     >
-      <input ngModel name="tuesday" type="text" />
+      <input ngModel name="tuesday" placeholder="Add a task..." type="text" />
       <select ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
@@ -97,7 +97,7 @@
   <div class="weekday-planner">
     <!-- Weekday display -->
     <button class="weekday-heading" (click)="toggleTodoList('wednesday')">
-      <h3>Mittwoch</h3>
+      <h3>Wednesday</h3>
       <img
         src="../../../assets/icons/arrowRight.png"
         alt="Opens todo list"
@@ -116,7 +116,7 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isWednesdayDisplayed"
     >
-      <input ngModel name="wednesday" type="text" />
+      <input ngModel name="wednesday" placeholder="Add a task..." type="text" />
       <select ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
@@ -161,7 +161,7 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isThursdayDisplayed"
     >
-      <input ngModel name="thursday" type="text" />
+      <input ngModel name="thursday" placeholder="Add a task..." type="text" />
       <select ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
@@ -206,7 +206,7 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isFridayDisplayed"
     >
-      <input ngModel name="friday" type="text" />
+      <input ngModel name="friday" placeholder="Add a task..." type="text" />
       <select ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
@@ -251,7 +251,12 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isSaturdayDisplayed"
     >
-      <input ngModel name="saturday" type="text" />
+      <input
+        ngModel
+        name="saturday"
+        placeholder="Write a task..."
+        type="text"
+      />
       <select ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
@@ -296,7 +301,7 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isSundayDisplayed"
     >
-      <input ngModel name="sunday" type="text" />
+      <input ngModel name="sunday" placeholder="Add a task..." type="text" />
       <select ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>

@@ -16,7 +16,6 @@
   text-transform: uppercase;
   width: 100%;
   margin: 0;
-  padding: 1rem 0;
 
   a {
     font-size: 0.6rem;
@@ -36,11 +35,13 @@
 
   &__inner {
     display: grid;
+    width: 92%;
     justify-content: space-between;
 
     @media only screen and (max-width: 600px) {
       grid-template-columns: 100%;
       gap: 1rem;
+      width: 100%;
     }
 
     @media only screen and (min-width: 900px) {
