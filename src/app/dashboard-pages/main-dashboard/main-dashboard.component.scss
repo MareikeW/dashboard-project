@@ -1,13 +1,61 @@
-.weekdisplay {
-    display: flex;
-    margin: 10px auto;
-    width: fit-content;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
+%gb-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d7d4ff;
+  border-radius: 0.5rem;
+  width: 100%;
+}
 
-    a {
-        font-size: 0.6rem;
-        text-transform: capitalize;
+.weekdisplay {
+  display: flex;
+  margin: 10px auto;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 0;
+
+  a {
+    font-size: 0.6rem;
+    text-transform: capitalize;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-row-gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+
+  @media only screen and (max-width: 600px) {
+    grid-row-gap: 1rem;
+  }
+
+  &__inner {
+    display: grid;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 100%;
+      gap: 1rem;
     }
+
+    @media only screen and (min-width: 900px) {
+      gap: 1%;
+      grid-template-columns: 59% 39%;
+    }
+  }
+}
+
+.dashboard-chart {
+  padding: 1rem;
+  @extend %gb-section;
+}
+
+.dashboard-bottom-section {
+  padding: 1rem;
+  @extend %gb-section;
 }

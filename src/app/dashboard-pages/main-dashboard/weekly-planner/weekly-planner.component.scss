@@ -1,16 +1,54 @@
 .weekly-planner-container {
+  .weekday-planner {
+    margin: 0 auto;
+    border-radius: 0.2rem;
+    padding: 0;
+    width: 100%;
+    background-color: lightseagreen;
 
-    .weekday-planner {
-        margin: 0 auto;
-        width: 30%;
-    }
+    &__todo {
+      background-color: white;
+      width: 100%;
+      &--item {
+        padding: 1rem;
+      }
 
-    .weekday-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      p {
         width: 100%;
-        background-color: lightseagreen;
-        border: none;
+        display: flex;
+        color: rgb(101, 98, 102);
+        justify-content: space-between;
+      }
     }
+  }
+
+  .weekday-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: lightseagreen;
+    padding: 1rem;
+    border: 1px solid lightseagreen;
+    color: white;
+  }
+
+  .weekday-todos {
+    width: 100%;
+    padding: 0 1rem;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 69% 10% 20%;
+    background-color: white;
+    padding: 1rem;
+
+    input,
+    select {
+      width: 100%;
+      height: 3rem;
+      font-size: 1rem;
+      padding: 0 0.5rem;
+      border: 1px solid #ccc;
+    }
+  }
 }
