@@ -19,7 +19,7 @@ describe('MainDashboardComponent', () => {
           useValue: { data: of({ id: 1 }) },
         },
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
@@ -32,4 +32,84 @@ describe('MainDashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('getNextWeek', () => {
+    it('sets nextWeek to undefined if week > 11', () => {
+      const nextWeek = '/dashboard/main-dashboard/11';
+      component.nextWeek = nextWeek;
+      component.week = 12;
+      expect(component.getNextWeek()).toBeUndefined();
+    });
+
+    it('increases nextWeek if week < 11', () => {
+      const nextWeek = '/dashboard/main-dashboard/1';
+      component.nextWeek = nextWeek;
+      component.week = 2;
+      expect(component.getNextWeek()).toBe('/dashboard/main-dashboard/3');
+    });
+
+    it('increases nextWeek if week = 11', () => {
+      const nextWeek = '/dashboard/main-dashboard/1';
+      component.nextWeek = nextWeek;
+      component.week = 11;
+      expect(component.getNextWeek()).toBe('/dashboard/main-dashboard/12');
+    });
+  });
+
+  describe('getPreviousWeek', () => {
+    it('sets nextWeek to undefined if week < 2', () => {
+      const nextWeek = '/dashboard/main-dashboard/11';
+      component.nextWeek = nextWeek;
+      component.week = 1;
+      expect(component.getPreviousWeek()).toBeUndefined();
+    });
+
+    it('decreases nextWeek if week > 2', () => {
+      const nextWeek = '/dashboard/main-dashboard/1';
+      component.nextWeek = nextWeek;
+      component.week = 3;
+      expect(component.getPreviousWeek()).toBe('/dashboard/main-dashboard/2');
+    });
+
+    it('decreases nextWeek if week = 2', () => {
+      const nextWeek = '/dashboard/main-dashboard/1';
+      component.nextWeek = nextWeek;
+      component.week = 2;
+      expect(component.getPreviousWeek()).toBe('/dashboard/main-dashboard/1');
+    });
+  });
+
+  describe('hasNextWeek', () => {
+    it('returns true if week < 11', () => {
+      component.week = 10
+      expect(component.hasNextWeek()).toBe(true)
+    })
+
+    it('returns true if week = 11', () => {
+      component.week = 11
+      expect(component.hasNextWeek()).toBe(true)
+    })
+
+    it('returns false if week > 11', () => {
+      component.week = 12
+      expect(component.hasNextWeek()).toBe(false)
+    })
+  })
+
+  describe('hasPreviousWeek', () => {
+    it('returns true if week > 2', () => {
+      component.week = 3
+      expect(component.hasPreviousWeek()).toBe(true)
+    })
+
+    it('returns true if week = 2', () => {
+      component.week = 2
+      expect(component.hasPreviousWeek()).toBe(true)
+    })
+
+    it('returns false if week < 2', () => {
+      component.week = 1
+      expect(component.hasPreviousWeek()).toBe(false)
+    })
+  })
 });
