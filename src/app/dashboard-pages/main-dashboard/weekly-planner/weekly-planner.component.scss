@@ -1,16 +1,16 @@
 .weekly-planner-container {
+  .weekday-planner {
+    margin: 0 auto;
+    border-radius: 0.2rem;
+    padding: 0;
+    width: 100%;
+    background-color: lightseagreen;
+  }
 
-    .weekday-planner {
-        margin: 0 auto;
-        width: 30%;
-    }
-
-    .weekday-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        background-color: lightseagreen;
-        border: none;
-    }
+  .weekday-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightseagreen;
+  }
 }

@@ -1,50 +1,85 @@
-<section>
-        <table>
-            <thead>
-                <tr>
-                    <th>Habit</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                    <th>Sun</th>
-                </tr>
-            </thead>
-            
-            <!-- For-Loop, to display all saved habits -->
-            <tbody *ngFor="let habit of currentWeeksHabits">
-                <tr>
-                    <td>
-                        {{ habit.habitName }}
-                    </td>
-                    <td>
-                        <input type="checkbox" name="done" [(ngModel)]="habit.isMondayDone" (click)="updateHabitStatus(habit, 'monday')" />
-                    </td>
-                    <td>
-                        <input type="checkbox" name="done" [(ngModel)]="habit.isTuesdayDone" (click)="updateHabitStatus(habit, 'tuesday')" />
-                    </td>
-                    <td>
-                        <input type="checkbox" name="done" [(ngModel)]="habit.isWednesdayDone" (click)="updateHabitStatus(habit, 'wednesday')" />
-                    </td>
-                    <td>
-                        <input type="checkbox" name="done" [(ngModel)]="habit.isThursdayDone" (click)="updateHabitStatus(habit, 'thursday')" />
-                    </td>
-                    <td>
-                        <input type="checkbox" name="done" [(ngModel)]="habit.isFridayDone" (click)="updateHabitStatus(habit, 'friday')" />
-                    </td>
-                    <td>
-                        <input type="checkbox" name="done" [(ngModel)]="habit.isSaturdayDone" (click)="updateHabitStatus(habit, 'saturday')" />
-                    </td>
-                    <td>
-                        <input type="checkbox" name="done" [(ngModel)]="habit.isSundayDone" (click)="updateHabitStatus(habit, 'sunday')" />
-                    </td>
-                </tr>
-            </tbody>      
-        </table>
-        <form #form="ngForm" (ngSubmit)="onHabitSubmit(form)">
-            <input ngModel type="text" name="habit" />
-            <button type="submit">Submit</button>
-        </form>    
+<section class="dashboard-habit-tracker">
+  <table>
+    <thead>
+      <tr>
+        <th>Habit</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+      </tr>
+    </thead>
+
+    <!-- For-Loop, to display all saved habits -->
+    <tbody *ngFor="let habit of currentWeeksHabits">
+      <tr>
+        <td>
+          {{ habit.habitName }}
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="done"
+            [(ngModel)]="habit.isMondayDone"
+            (click)="updateHabitStatus(habit, 'monday')"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="done"
+            [(ngModel)]="habit.isTuesdayDone"
+            (click)="updateHabitStatus(habit, 'tuesday')"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="done"
+            [(ngModel)]="habit.isWednesdayDone"
+            (click)="updateHabitStatus(habit, 'wednesday')"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="done"
+            [(ngModel)]="habit.isThursdayDone"
+            (click)="updateHabitStatus(habit, 'thursday')"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="done"
+            [(ngModel)]="habit.isFridayDone"
+            (click)="updateHabitStatus(habit, 'friday')"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="done"
+            [(ngModel)]="habit.isSaturdayDone"
+            (click)="updateHabitStatus(habit, 'saturday')"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="done"
+            [(ngModel)]="habit.isSundayDone"
+            (click)="updateHabitStatus(habit, 'sunday')"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form #form="ngForm" (ngSubmit)="onHabitSubmit(form)">
+    <input ngModel type="text" name="habit" />
+    <button type="submit">Submit</button>
+  </form>
 </section>
