@@ -27,6 +27,7 @@ button {
   margin: 0 auto;
   margin-bottom: 2rem;
   position: relative;
+  z-index:1;
 
   @media only screen and (max-width: 600px) {
     width: 100%;
@@ -47,6 +48,34 @@ button {
     color: black;
     text-transform: uppercase;
     font-weight: bold;
+  }
+  .bg-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background-image: radial-gradient(#cbc7ff, #a3a0cf), linear-gradient(45deg, #767676, #c5c1f8);
+    border: 2px solid #9e99e5a8;
+    box-shadow: 0 0.5em 1.5em 0.5em #aaa6dd00;
+    z-index: -1;
+    .bg-text {
+      position: absolute;
+      font-size: 20vw;
+      font-weight: 700;
+      min-width: 100%;
+      min-height: 100%;
+      height: 100%;
+      word-break: keep-all;
+      line-height: 0.8;
+      text-align: end;
+      transform: rotate(-15deg) translate(-3%, 5%);
+      color: #aaa6dd;
+      text-shadow: 0.04em 0.04em #a39fd1, 0.04em 0em #a39fd1;
+      filter: drop-shadow(.05em .05em .05em #a39fd1) blur(5px);
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
   }
 }
 
