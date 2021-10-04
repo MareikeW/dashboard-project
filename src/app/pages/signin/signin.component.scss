@@ -1,0 +1,102 @@
+.container {
+  padding-top: 40px;
+  background-color: #eeeeee;
+  height: 650px;
+  text-align: center;
+}
+
+.center-div {
+  width: 80%;
+  margin: auto;
+}
+
+.form-container,
+.media-container {
+  padding-top: 10px;
+}
+
+.form-content {
+  width: 50%;
+  margin: auto;
+  border: 2px solid whitesmoke;
+  padding: 10px;
+  border-radius: 50px 20px;
+  background-color: #f7f6f2;
+}
+
+span {
+  font-size: 14px;
+  float: right;
+}
+
+.text {
+  margin-top: 40px;
+}
+
+.inputField,
+.media-list {
+  margin-top: 10px;
+  margin-bottom: 7px;
+}
+
+.inputField,
+.submitBtn {
+  padding: 10px 12px;
+  width: 95%;
+  border-radius: 5px;
+  border: 0.5px solid #4b6587;
+}
+
+.submitBtn {
+  width: 50%;
+  margin-top: 20px;
+  background-color: #4b6587;
+  color: #f7f6f2;
+}
+
+.submitBtn:active {
+  background-color: #a2cdcd;
+  color: #000;
+}
+
+.media-list li {
+  display: inline-block;
+  margin: 3px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.fa:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 15px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.alert {
+  color: #ff0000;
+}

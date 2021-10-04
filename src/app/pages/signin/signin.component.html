@@ -1,1 +1,72 @@
-<p>signin works!</p>
+<div class="container center-div">
+  <h2>Welcome to My Productivity</h2>
+
+  <h3 class="text">Sign In</h3>
+  <div class="form-container center-div">
+    <form #form="ngForm" (submit)="onSubmit()">
+      <div class="form-content center-div">
+        <label for="username"></label>
+        <input
+          class="inputField"
+          type="email"
+          name="username"
+          id="username"
+          placeholder="Type your email"
+          ngModel
+          pattern="[a-zA-Z0-9]*@gmail.com$"
+          required
+        />
+
+        <p class="alert" *ngIf="form.controls.username?.errors?.required">
+          *Email is required!
+        </p>
+        <p class="alert" *ngIf="form.controls.username?.errors">
+          *Invalid email address!
+        </p>
+
+        <br />
+
+        <label for="password"></label>
+        <input
+          class="inputField"
+          type="password"
+          name="password"
+          id="password"
+          ngModel
+          placeholder="Type your password"
+          required
+        />
+
+        <p class="alert" *ngIf="form.controls.password?.errors?.required">
+          *Password is required!
+        </p>
+
+        <br />
+        <span><a href="#">Forgot password?</a></span>
+        <br />
+
+        <button
+          type="submit"
+          name="btn"
+          (click)="onClick()"
+          [disabled]="form.invalid"
+          class="submitBtn"
+        >
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <h3 class="text">Or Sign Up Using</h3>
+
+  <div class="media-container">
+    <ul class="media-list">
+      <li><a href="#" class="fa fa-facebook"></a></li>
+      <li><a href="#" class="fa fa-twitter"></a></li>
+      <li><a href="#" class="fa fa-google"></a></li>
+      or
+      <li><a routerLink="/signup">Sign Up</a></li>
+    </ul>
+  </div>
+</div>
