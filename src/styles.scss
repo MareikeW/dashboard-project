@@ -38,15 +38,28 @@ button {
     top: 35%;
     display: flex;
     flex-direction: column;
-    background-color: red;
+    background-color: $dark_purple;
     width: fit-content;
+    border-radius: 0.5rem;
   }
 
-  a {
+  & a {
     padding: 1em;
-    color: black;
+    color: white;
     text-transform: uppercase;
     font-weight: bold;
+    background-color: $dark_purple;
+
+    &:first-of-type {
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+    &:last-of-type {
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+    &:hover {
+      background-color: darken($dark_purple, 10);
+    }
   }
 }
 
