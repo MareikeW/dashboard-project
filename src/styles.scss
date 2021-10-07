@@ -41,6 +41,13 @@ button {
     background-color: $dark_purple;
     width: fit-content;
     border-radius: 0.5rem;
+
+    & a:first-of-type {
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+    & a:last-of-type {
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
   }
 
   & a {
@@ -49,13 +56,7 @@ button {
     text-transform: uppercase;
     font-weight: bold;
     background-color: $dark_purple;
-
-    &:first-of-type {
-      border-radius: 0.5rem 0.5rem 0 0;
-    }
-    &:last-of-type {
-      border-radius: 0 0 0.5rem 0.5rem;
-    }
+    border-radius: 0.5rem;
 
     &:hover {
       background-color: darken($dark_purple, 10);
