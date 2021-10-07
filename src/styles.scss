@@ -42,6 +42,9 @@ button {
     width: fit-content;
     border-radius: 0.5rem;
 
+    & a {
+      border-radius: 0;
+    }
     & a:first-of-type {
       border-radius: 0.5rem 0.5rem 0 0;
     }
