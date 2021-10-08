@@ -5,3 +5,49 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+header nav {
+  ul {
+    display: flex;
+    margin: 0;
+
+    li {
+      position: relative;
+      
+      a {
+        margin-left: 1.5rem;
+        padding-bottom: 0.5rem;
+        color: lightseagreen;
+        text-transform: uppercase;
+        letter-spacing: 0.10em;
+        
+        display: inline-block;
+        position: relative;
+      }
+      
+      a:hover, a:focus {
+        color: seagreen;
+      }
+
+      a:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: seagreen;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      
+      a:hover:after { 
+        width: 100%; 
+        left: 0; 
+      }
+    }
+    
+  }
+  
+}
