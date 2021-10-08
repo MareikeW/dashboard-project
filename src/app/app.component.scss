@@ -3,5 +3,75 @@ header {
   width: 80vw;
   margin: 20px auto;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
+  color: mediumslateblue;
+  text-transform: uppercase;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  
+  img {
+    margin-right: 1rem;
+  }
+}
+
+header nav {
+  ul {
+    display: flex;
+    margin: 0;
+    
+    li {
+      position: relative;
+      
+      a {
+        display: inline-block;
+        position: relative;
+        margin-left: 1.5rem;
+        padding-bottom: 0.5rem;
+        color: mediumslateblue;
+        letter-spacing: 0.10em;
+      }
+      
+      a:hover, a:focus {
+        color: rebeccapurple;
+      }
+      
+      a:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: rebeccapurple;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      
+      a:hover:after { 
+        width: 100%; 
+        left: 0; 
+      }
+    }
+  }
+}
+
+@media (max-width: 376px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+    .logo {
+      align-items: center;
+    }
 }

@@ -1,9 +1,14 @@
 <header>
-  <h1>{{ title }}</h1>
+  <div class="logo">
+    <img src="../assets/icons/iconmonstr-ruler-7.png" alt="logo">
+    <h1>{{ title }}</h1>
+  </div>
   <nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/signin">Sign in</a>
-    <a routerLink="/signup">Sign up</a>
+    <ul>
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/signin">Sign in</a></li>
+      <li><a routerLink="/signup">Sign up</a></li>
+    </ul>
   </nav>
 </header>
 <router-outlet></router-outlet>
