@@ -3,9 +3,18 @@ header {
   width: 80vw;
   margin: 20px auto;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   color: mediumslateblue;
   text-transform: uppercase;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  
+  img {
+    margin-right: 1rem;
+  }
 }
 
 header nav {
@@ -47,7 +56,16 @@ header nav {
         left: 0; 
       }
     }
-    
   }
-  
+}
+
+@media (max-width: 376px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      align-items: center;
+    }
+  }
 }
