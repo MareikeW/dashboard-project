@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Set Node.js 14
+        uses: actions/setup-node@main
+        with:
+          node-version: 14
+
+      - name: Dependencies
+        run: |
+          npm ci
+      - name: Tests
+        run: |
+          npm run test:ci
+      - name: Build
+        run: |
+          npm run build
