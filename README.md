@@ -1,5 +1,7 @@
 <h1>Welcome to the Productivity App project! 👋</h1>
 
+❗️❗️❗️❗️ <b>Pull requests won't be accepted, when there wasn't an issue assigned to the person who has sent the pull request</b> ❗️❗️❗️❗️
+
 <p>In this project, we create an app where people can track their productivity over a 12 week period.</p>
 
 <h3>Some Features ✍🏼:</h3>
