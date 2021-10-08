@@ -69,3 +69,9 @@ header nav {
     }
   }
 }
+
+@media (max-width: 768px) {
+    .logo {
+      align-items: center;
+    }
+}
