@@ -4,31 +4,31 @@ header {
   margin: 20px auto;
   justify-content: space-between;
   align-items: center;
+  color: mediumslateblue;
+  text-transform: uppercase;
 }
 
 header nav {
   ul {
     display: flex;
     margin: 0;
-
+    
     li {
       position: relative;
       
       a {
-        margin-left: 1.5rem;
-        padding-bottom: 0.5rem;
-        color: lightseagreen;
-        text-transform: uppercase;
-        letter-spacing: 0.10em;
-        
         display: inline-block;
         position: relative;
+        margin-left: 1.5rem;
+        padding-bottom: 0.5rem;
+        color: mediumslateblue;
+        letter-spacing: 0.10em;
       }
       
       a:hover, a:focus {
-        color: seagreen;
+        color: rebeccapurple;
       }
-
+      
       a:after {    
         background: none repeat scroll 0 0 transparent;
         bottom: 0;
@@ -37,7 +37,7 @@ header nav {
         height: 2px;
         left: 50%;
         position: absolute;
-        background: seagreen;
+        background: rebeccapurple;
         transition: width 0.3s ease 0s, left 0.3s ease 0s;
         width: 0;
       }
