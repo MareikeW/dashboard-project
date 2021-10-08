@@ -2,8 +2,7 @@
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
         <div class="form-head">
             <h2 *ngIf="show">Add a new goal:</h2>
-            <!-- Task: Remove the title "minimize" when the button is in minimize mode. -->
-            <button title="minimize" (click)="show = !show" [ngClass]="show ? 'minButton' : 'newButton'">{{show ? '_' : 'New goal'}}</button>
+            <button [title]="show ? 'minimize' : ''" (click)="show = !show" [ngClass]="show ? 'minButton' : 'newButton'">{{show ? '_' : 'New goal'}}</button>
         </div>
 
         <div class="form-body" *ngIf="show">
