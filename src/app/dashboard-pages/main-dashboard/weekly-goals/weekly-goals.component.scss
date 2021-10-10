@@ -10,20 +10,29 @@
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   margin: 10px;
+  padding: 1em 2em;
+}
+input {
+  padding: 0.5em 1em;
+  margin: 0.875em auto;
+  border-radius: 2em;
+  border: none;
 }
 button {
   margin: 10px;
-  background-color: #d57276;
-  border-radius: 40px;
-  box-shadow: 0 4px #65b2c6;
+  background-color: #94186b;
+  border-radius: 2rem;
+  box-shadow: 0 5px 8px #0005;
   color: #fff;
-  padding: 4px 10px;
+  padding: 0.5em 1em;
   text-transform: uppercase;
-  font-size: 0.7rem;
+  font-size: 1.2srem;
+  font-weight: 500;
+  border: none;
 }
 
 li {
-  padding: 3px;
+  padding: 0.5em 1em;
   text-transform: uppercase;
   font-weight: bold;
 }

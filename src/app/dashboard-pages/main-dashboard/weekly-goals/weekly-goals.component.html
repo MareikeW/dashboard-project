@@ -13,11 +13,13 @@
       placeholder="Enter New Goal Here"
     />
     <br />
-    <button type="submit">Add Goal</button>
+    <button type="submit" class="add-goal-btn">Add Goal</button>
   </form>
   <div class="weekly-goal-list">
     <ol *ngFor="let weekgoal of currentWeeksGoals; index as indexOfWeekGoal">
-      <li>{{ indexOfWeekGoal + 1 }}. {{ weekgoal.description }}</li>
+      <li class="weekly-goal-item">
+        {{ indexOfWeekGoal + 1 }}. {{ weekgoal.description }}
+      </li>
     </ol>
   </div>
 </section>
