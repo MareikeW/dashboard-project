@@ -39,8 +39,10 @@
 
   &__inner {
     display: grid;
-    width: 92%;
+    width: 96%;
+    margin: 0 auto;
     justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
     @media only screen and (max-width: 600px) {
       grid-template-columns: 100%;

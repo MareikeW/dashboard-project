@@ -35,7 +35,8 @@ button {
   .dashboard-navigation {
     position: absolute;
     right: -30px;
-    top: 35%;
+    top: 45%;
+    transform: translateY(-45%);
     display: flex;
     flex-direction: column;
     background-color: $dark_purple;
