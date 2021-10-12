@@ -21,14 +21,20 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isMondayDisplayed"
     >
-      <input ngModel name="monday" placeholder="Add a task..." type="text" />
-      <select ngModel name="priority">
+      <input
+        ngModel
+        name="monday"
+        placeholder="Add a task..."
+        type="text"
+        class="weekday-todos__input"
+      />
+      <select class="weekday-todos__select" ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
       </select>
-      <button type="submit">Add todo</button>
+      <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
     <div class="weekday-planner__todo">
@@ -71,14 +77,20 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isTuesdayDisplayed"
     >
-      <input ngModel name="tuesday" placeholder="Add a task..." type="text" />
-      <select ngModel name="priority">
+      <input
+        ngModel
+        name="tuesday"
+        class="weekday-todos__input"
+        placeholder="Add a task..."
+        type="text"
+      />
+      <select class="weekday-todos__select" ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
       </select>
-      <button type="submit">Add todo</button>
+      <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
     <div *ngFor="let todo of currentWeeksTuesdayTodos">
@@ -116,14 +128,20 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isWednesdayDisplayed"
     >
-      <input ngModel name="wednesday" placeholder="Add a task..." type="text" />
-      <select ngModel name="priority">
+      <input
+        ngModel
+        class="weekday-todos__input"
+        name="wednesday"
+        placeholder="Add a task..."
+        type="text"
+      />
+      <select class="weekday-todos__select" ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
       </select>
-      <button type="submit">Add todo</button>
+      <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
     <div *ngFor="let todo of currentWeeksWednesdayTodos">
@@ -161,14 +179,20 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isThursdayDisplayed"
     >
-      <input ngModel name="thursday" placeholder="Add a task..." type="text" />
-      <select ngModel name="priority">
+      <input
+        ngModel
+        name="thursday"
+        class="weekday-todos__input"
+        placeholder="Add a task..."
+        type="text"
+      />
+      <select class="weekday-todos__select" ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
       </select>
-      <button type="submit">Add todo</button>
+      <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
     <div *ngFor="let todo of currentWeeksThursdayTodos">
@@ -206,14 +230,20 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isFridayDisplayed"
     >
-      <input ngModel name="friday" placeholder="Add a task..." type="text" />
-      <select ngModel name="priority">
+      <input
+        ngModel
+        class="weekday-todos__input"
+        name="friday"
+        placeholder="Add a task..."
+        type="text"
+      />
+      <select class="weekday-todos__select" ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
       </select>
-      <button type="submit">Add todo</button>
+      <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
     <div *ngFor="let todo of currentWeeksFridayTodos">
@@ -256,14 +286,15 @@
         name="saturday"
         placeholder="Write a task..."
         type="text"
+        class="weekday-todos__input"
       />
-      <select ngModel name="priority">
+      <select class="weekday-todos__select" ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
       </select>
-      <button type="submit">Add todo</button>
+      <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
     <div *ngFor="let todo of currentWeeksSaturdayTodos">
@@ -301,14 +332,20 @@
       class="weekday-todos"
       *ngIf="dailyTodoLists.isSundayDisplayed"
     >
-      <input ngModel name="sunday" placeholder="Add a task..." type="text" />
-      <select ngModel name="priority">
+      <input
+        class="weekday-todos__input"
+        ngModel
+        name="sunday"
+        placeholder="Add a task..."
+        type="text"
+      />
+      <select class="weekday-todos__select" ngModel name="priority">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
       </select>
-      <button type="submit">Add todo</button>
+      <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
     <div *ngFor="let todo of currentWeeksSundayTodos">

@@ -1,16 +1,75 @@
+$br5: 0.5em;
+$g-color: #740596;
+$btn-color: #038f59;
 .weekly-planner-container {
+  max-width: 100%;
+  margin: 1em auto;
   .weekday-planner {
     margin: 0 auto;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
     padding: 0;
     width: 100%;
-    background-color: lightseagreen;
+    background-color: $g-color;
+    margin-bottom: 1em;
+    &__todo {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      color: #fff;
+      &--item input[type="checkbox"] {
+        cursor: pointer;
+        margin-left: 0.5em;
+      }
+    }
   }
 
   .weekday-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightseagreen;
+    background-color: $btn-color;
+    padding: 0.5em 1em;
+    width: 100%;
+    border: none;
+    border-radius: $br5;
+    color: #fff;
+    &:hover {
+      background-color: #055749;
+    }
+  }
+  .weekday-todos {
+    padding: 0.5em 1em;
+
+    &__input {
+      padding: 0.5em 1em;
+      border-radius: $br5;
+      border: 2px solid transparent;
+      &:focus {
+        border-color: $btn-color;
+      }
+    }
+    &__select {
+      margin: 0 0.5em;
+      padding: 0.5em 0.875em;
+      cursor: pointer;
+      border-radius: $br5;
+      border: 2px solid transparent;
+      &:focus {
+        border-color: $btn-color;
+      }
+    }
+    &__btn {
+      padding: 0.5em 1em;
+      margin: 0 0.5em;
+      font-weight: 600;
+      background: $btn-color;
+      border-radius: $br5;
+      border: none;
+      color: #fff;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }
