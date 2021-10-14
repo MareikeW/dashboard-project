@@ -16,7 +16,6 @@ export class GoalFormComponent implements OnInit {
   constructor(private goalsService: GoalsService) {}
 
   ngOnInit(): void {
-    /* Task: Save goals to LocalStorage. See e.g. habit-tracker component */
     this.goals = this.goalsService.getAllGoals();
   }
 
