@@ -40,7 +40,7 @@
     <div class="weekday-planner__todo">
       <div
         class="weekday-planner__todo--item"
-        *ngFor="let todo of currentWeeksMondayTodos"
+        *ngFor="let todo of currentWeeksMondayTodos; let i = index"
       >
         <p>
           {{ todo.priority }} | {{ todo.task }}
@@ -50,6 +50,7 @@
             [(ngModel)]="todo.done"
             (click)="updateTodoStatus(todo)"
           />
+          <button type="submit" class="weekday-todos__btn flex-end" (click)="deleteTodo(i, 'monday')">delete todo</button>
         </p>
       </div>
     </div>
@@ -93,7 +94,8 @@
       <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
-    <div *ngFor="let todo of currentWeeksTuesdayTodos">
+    <div class="weekday-planner__todo">
+    <div class="weekday-planner__todo--item" *ngFor="let todo of currentWeeksTuesdayTodos; let i = index">
       <p>
         {{ todo.priority }} | {{ todo.task }}
         <input
@@ -102,7 +104,9 @@
           [(ngModel)]="todo.done"
           (click)="updateTodoStatus(todo)"
         />
+        <button type="submit" class="weekday-todos__btn flex-end" (click)="deleteTodo(i, 'tuesday')">delete todo</button>
       </p>
+     </div>
     </div>
   </div>
 
@@ -144,7 +148,8 @@
       <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
-    <div *ngFor="let todo of currentWeeksWednesdayTodos">
+    <div class="weekday-planner__todo">
+    <div class="weekday-planner__todo--item" *ngFor="let todo of currentWeeksWednesdayTodos; let i = index">
       <p>
         {{ todo.priority }} | {{ todo.task }}
         <input
@@ -153,7 +158,9 @@
           [(ngModel)]="todo.done"
           (click)="updateTodoStatus(todo)"
         />
+        <button type="submit" class="weekday-todos__btn flex-end" (click)="deleteTodo(i, 'wednesday')">delete todo</button>
       </p>
+    </div>
     </div>
   </div>
 
@@ -195,7 +202,8 @@
       <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
-    <div *ngFor="let todo of currentWeeksThursdayTodos">
+    <div class="weekday-planner__todo">
+    <div class="weekday-planner__todo--item" *ngFor="let todo of currentWeeksThursdayTodos; let i = index">
       <p>
         {{ todo.priority }} | {{ todo.task }}
         <input
@@ -204,7 +212,9 @@
           [(ngModel)]="todo.done"
           (click)="updateTodoStatus(todo)"
         />
+        <button type="submit" class="weekday-todos__btn flex-end" (click)="deleteTodo(i, 'thursday')">delete todo</button>
       </p>
+    </div>
     </div>
   </div>
 
@@ -246,7 +256,8 @@
       <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
-    <div *ngFor="let todo of currentWeeksFridayTodos">
+    <div class="weekday-planner__todo">
+    <div class="weekday-planner__todo--item" *ngFor="let todo of currentWeeksFridayTodos; let i = index">
       <p>
         {{ todo.priority }} | {{ todo.task }}
         <input
@@ -255,7 +266,9 @@
           [(ngModel)]="todo.done"
           (click)="updateTodoStatus(todo)"
         />
+        <button type="submit" class="weekday-todos__btn flex-end" (click)="deleteTodo(i, 'friday')">delete todo</button>
       </p>
+    </div>
     </div>
   </div>
 
@@ -297,7 +310,8 @@
       <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
-    <div *ngFor="let todo of currentWeeksSaturdayTodos">
+    <div class="weekday-planner__todo">
+    <div class="weekday-planner__todo--item" *ngFor="let todo of currentWeeksSaturdayTodos; let i = index">
       <p>
         {{ todo.priority }} | {{ todo.task }}
         <input
@@ -306,7 +320,9 @@
           [(ngModel)]="todo.done"
           (click)="updateTodoStatus(todo)"
         />
+        <button type="submit" class="weekday-todos__btn flex-end" (click)="deleteTodo(i, 'saturday')">delete todo</button>
       </p>
+    </div>
     </div>
   </div>
 
@@ -348,7 +364,8 @@
       <button type="submit" class="weekday-todos__btn">Add todo</button>
     </form>
     <!-- Displays all todos on this day -->
-    <div *ngFor="let todo of currentWeeksSundayTodos">
+    <div class="weekday-planner__todo">
+    <div class="weekday-planner__todo--item" *ngFor="let todo of currentWeeksSundayTodos; let i = index">
       <p>
         {{ todo.priority }} | {{ todo.task }}
         <input
@@ -357,7 +374,9 @@
           [(ngModel)]="todo.done"
           (click)="updateTodoStatus(todo)"
         />
+        <button type="submit" class="weekday-todos__btn flex-end" (click)="deleteTodo(i, 'sunday')">delete todo</button>
       </p>
+    </div>
     </div>
   </div>
 </section>

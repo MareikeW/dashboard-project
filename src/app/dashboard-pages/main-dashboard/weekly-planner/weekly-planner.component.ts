@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 /* Task: Implement a function to delete a todo that has been added in the weekly-planner component */
 
-/* Task: Take the logic of adding/updating a todo and put it in its own seperate function 
+/* Task: Take the logic of adding/updating a todo and put it in its own seperate function
 (weekly-planner component, see e.g. habit-tracker where it has already be implemented) */
 @Component({
   selector: 'app-weekly-planner',
@@ -21,7 +21,7 @@ export class WeeklyPlannerComponent implements OnInit {
   currentWeeksFridayTodos: Todo[] = [];
   currentWeeksSaturdayTodos: Todo[] = [];
   currentWeeksSundayTodos: Todo[] = [];
-  
+
   dailyTodoLists = {
     isMondayDisplayed: false,
     isTuesdayDisplayed: false,
@@ -38,7 +38,7 @@ export class WeeklyPlannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
-      this.week = data.id; 
+      this.week = data.id;
     });
 
     // If at the beginning there is no data saved, an empty array will be saved into LocalStorage.
@@ -71,8 +71,8 @@ export class WeeklyPlannerComponent implements OnInit {
             break;
           }
         }
-      } 
-    }  
+      }
+    }
   }
 
   onTodoSubmit(form: NgForm) {
@@ -91,14 +91,14 @@ export class WeeklyPlannerComponent implements OnInit {
     } else if (form.value.sunday) {
       this.addTodo(new Todo(form.value.sunday, 'sunday', form.value.priority, form.value.done, this.week))
     }
-    
+
     form.reset();
   }
 
   addTodo(todo: Todo) {
     this.allTodos.push(todo);
-    // adds todo to array in LocalStorage 
-    // this should be put into its own function and then be called here 
+    // adds todo to array in LocalStorage
+    // this should be put into its own function and then be called here
     let convertedAllTodos = JSON.stringify(this.allTodos);
     localStorage.setItem('todos', convertedAllTodos);
 
@@ -128,10 +128,10 @@ export class WeeklyPlannerComponent implements OnInit {
     }
   }
 
-  updateTodoStatus(todo: Todo) {   
+  updateTodoStatus(todo: Todo) {
     for (let oneTodo of this.allTodos) {
       if (todo.week === oneTodo.week && todo.task === oneTodo.task && todo.weekday === oneTodo.weekday) {
-        oneTodo.done = !oneTodo.done; 
+        oneTodo.done = !oneTodo.done;
       }
     }
 
@@ -141,12 +141,63 @@ export class WeeklyPlannerComponent implements OnInit {
     localStorage.setItem('todos', convertedAllTodos);
   }
 
+  deleteTodo(index: number, weekday: string) {
+     // deletes todo from array in LocalStorage
+    switch (weekday) {
+      case 'monday': {
+        this.currentWeeksMondayTodos.splice(index, 1);
+        break;
+      } case 'tuesday': {
+        this.currentWeeksTuesdayTodos.splice(index, 1);
+        break;
+      } case 'wednesday': {
+        this.currentWeeksWednesdayTodos.splice(index, 1);
+        break;
+      } case 'thursday': {
+        this.currentWeeksThursdayTodos.splice(index, 1);
+        break;
+      } case 'friday': {
+        this.currentWeeksFridayTodos.splice(index, 1);
+        break;
+      } case 'saturday': {
+        this.currentWeeksSaturdayTodos.splice(index, 1);
+        break;
+      } case 'sunday': {
+        this.currentWeeksSundayTodos.splice(index, 1);
+        break;
+      }
+    }
+
+    this.allTodos = this.allTodos.filter((t: Todo) => {
+      return t.week !== this.week
+    })
+
+
+   let weekTodos = [...this.currentWeeksMondayTodos,...this.currentWeeksTuesdayTodos,...this.currentWeeksWednesdayTodos, this.currentWeeksThursdayTodos, this.currentWeeksFridayTodos, this.currentWeeksSaturdayTodos, this.currentWeeksSundayTodos];
+   weekTodos = weekTodos.filter((t) => {
+     return Object.keys(t)?.length !== 0
+   })
+
+   let finalTodos = [ ...this.allTodos, ...weekTodos];
+
+   let newTodos: Todo[] = [];
+   finalTodos.forEach((t: any) => {
+     if(t.weekday) {
+       newTodos.push(t);
+     }
+   })
+
+   this.allTodos = newTodos;
+
+   localStorage.setItem('todos', JSON.stringify(this.allTodos));
+  }
+
   toggleTodoList(weekday: string) {
     switch(weekday) {
       case "monday": {
         this.dailyTodoLists.isMondayDisplayed = !this.dailyTodoLists.isMondayDisplayed;
         break;
-      }   
+      }
       case "tuesday": {
         this.dailyTodoLists.isTuesdayDisplayed = !this.dailyTodoLists.isTuesdayDisplayed;
         break;
@@ -154,7 +205,7 @@ export class WeeklyPlannerComponent implements OnInit {
       case "wednesday": {
         this.dailyTodoLists.isWednesdayDisplayed = !this.dailyTodoLists.isWednesdayDisplayed;
         break;
-      }   
+      }
       case "thursday": {
         this.dailyTodoLists.isThursdayDisplayed = !this.dailyTodoLists.isThursdayDisplayed;
         break;
@@ -162,7 +213,7 @@ export class WeeklyPlannerComponent implements OnInit {
       case "friday": {
         this.dailyTodoLists.isFridayDisplayed = !this.dailyTodoLists.isFridayDisplayed;
         break;
-      }   
+      }
       case "saturday": {
         this.dailyTodoLists.isSaturdayDisplayed = !this.dailyTodoLists.isSaturdayDisplayed;
         break;
